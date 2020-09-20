@@ -11,10 +11,8 @@ tareas entre robots exploradores para reducir costos de sensores muy especializa
 - También, se propone visualizar la forma en como los robots adquieren conocimiento del resto. De esta manera, se facilitaría el troubleshooting, habría mayor transparencia de lo que está sucediendo.
 
 ### Parte I - Inteligencia colectiva basada en reglas comunes 
-(recoleccion de datos)    (propuesta de un algoritmo)
     - Comunicacion entre robots (Lista de objetos o Threads)
-    - Exploracion de forma cooperativa de tal forma que compartan informacion
-        sobre el mapa (Algoritmo)
+    - Exploracion de forma cooperativa de tal forma que compartan informacion sobre el mapa (Algoritmo)
     - Repartir tareas (asignar una 'profesion' a cada robot y tareas) (Algoritmo)
     - Sensor o mecanismo para saber cuando un robot del grupo falla. (ping continuamente)
 ### Parte II - Visualizar los resultados recolectados por el robot
