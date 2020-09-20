@@ -1,65 +1,80 @@
-## Collective exploration robot swarm
+## Collective exploration robot swarm / Robot swarm visualizer
 
-Problema: Exploracion de lugares inalcanzables para el humano y para la vision de los satelites. 
+**Problema:** Exploracion de lugares inalcanzables para el humano y para la vision de los satelites. 
+*Asumiendo que son terrenos planos o transitables por el robot*
 
+**Objetivos:** 
+- Crear una herramienta de visualización que ayude a los científicos o cualquier interesado
+en el terreno a investigar, poder explorar o descubrir zonas donde no haya alcance.
+- Para demostrar la funcionalidad de la herramienta visual, se propone un algortimos de reparticion de 
+tareas entre robots exploradores para reducir costos de sensores muy especializados. 
+- También, se propone visualizar la forma en como los robots adquieren conocimiento del resto. De esta manera, se facilitaría el troubleshooting, habría mayor transparencia de lo que está sucediendo.
 
-Parte I - Inteligencia colectiva basada en reglas comunes 
+### Parte I - Inteligencia colectiva basada en reglas comunes 
 (recoleccion de datos)    (propuesta de un algoritmo)
-    -- Comunicacion entre robots
-    -- Exploracion de forma cooperativa de tal forma que compartan informacion
-        sobre el mapa.
-    -- Repartir tareas (asignar una 'profesion' a cada robot y tareas)
-    -- Sensor o mecanismo para saber cuando un robot del grupo falla.
-Parte II - Visualizar los resultados recolectados por el robot
-    -- Mapa 2D - estado incial obscuro. Estado final: la foto del terreno en piezas. Cada pieza del terreno tendria la informacion de ese pedazo.
-    -- Considerar el alcance espacial de cada medicion/sensor.
-    -- Ir iluminando el mapa de 2D conforme los robots vayan explorando
-    -- Logging de actividades (texto y grafica con reloj)
-    -- Cada tarea con diferente color.
-    -- Colocar la textura de la fotografia tomada como el "piso" del robot.
+    - Comunicacion entre robots (Lista de objetos o Threads)
+    - Exploracion de forma cooperativa de tal forma que compartan informacion
+        sobre el mapa (Algoritmo)
+    - Repartir tareas (asignar una 'profesion' a cada robot y tareas) (Algoritmo)
+    - Sensor o mecanismo para saber cuando un robot del grupo falla. (ping continuamente)
+### Parte II - Visualizar los resultados recolectados por el robot
+    - Mapa 2D - Estado incial: obscuro. Estado final: la foto del terreno en piezas. Cada pieza del terreno tendria la informacion de ese pedazo.
+    - Considerar el alcance espacial de cada medicion/sensor. (delimitación del pedazo medido)
+    - Ir iluminando el mapa de 2D conforme los robots vayan explorando. Cada tarea con diferente color.
+    - Colocar la textura de la fotografia tomada como el "piso" del robot.
+    - Logging de actividades (texto y grafico de snapshot de actividades).
+
+### Experiencia de usuario
+- Cada pieza del mapa tendrá que ser clickeable.
+- Al dar click se deberían visualizar las propiedades de ese pedazo del terreno.
+- Propiedades: Filtrar log por nombre de robot y id del pedazo, resultados de mediciones.
+- En otro lado, mostrar el log de actividades en forma de texto y de forma gráfica en "tiempo real".
+
+### Definición de conceptos
 
 Tareas:
-- Lista de tareas por cada profesion.
-- Sensores especificos.
+Es el proceso o trabajo que realizará cada robot.
+- Existirá una lista de tareas por cada profesion.
+- Sensores especificos para cada profesión.
 
 Profesiones:
-- Biologo/Quimico
-    -- Detector de fosfeno, metano, co2, oxigeno.
-- Geologo
-    -- Humedad de suelo
-    -- Campo magnetico
+- Biologo/Químico
+    - Detector de fosfeno, metano, co2, oxigeno.
+- Geólogo
+    - Humedad de suelo
+    - Campo magnetico
 - Fisico/Luz
-    -- Intensidad luminosa
-    -- Campo magnetico
+    - Intensidad luminosa
+    - Campo magnetico
 - Meteorologo
-    -- Temperatura
-    -- Presion
+    - Temperatura
+    - Presion
 
 Robot general:
 - Sensores tradicionales
-    -- Giroscopio
-    -- Acelerometro
-    -- Sonar
-    -- Microfono
+    - Giroscopio
+    - Acelerometro
+    - Sonar
+    - Microfono
 
 Algortimos de reparticion de tareas / algoritmos distribuidos:
 - Pendiente
 
 Equipo:
-Erick - 
-Leo - visualizacion, algoritmos, AI
-Carlos - server-side, visualizacion
-Ariel - server-side, algoritmos
-Luis
+- Erik - server-side setup / AWS - Lambda (Serverless) / Python - Flask / API / Dev server por ahora 
+- Leo - visualizacion, algoritmos, AI
+- Carlos - server-side, visualizacion
+- Ariel - server-side, algoritmos
+- Luis - Couch
 
-Server-side:
+Server-side work:
 - Generar datos de sensores
-- Algoritmos
-- Analisis de datos
-- Envio de resultados a la visualizacion (frontend)
-- Almacenamiento de logs
+- Ejecución de los algoritmos
+- Precesamiento de datos y generación de resultados.
+- Enviar resultados en respuesta a peticiones del frontend.
+- Almacenamiento de logs en archivos y base de datos: swarm.log, DynamoDB (NoSQL - JSON data)
 
-Visualizacion:
+Visualización:
 - Mapa 2D
-- Mapa de actividades (influence mapping)
-- Visualizacion de logs
+- Mapa de actividades (ej. influence mapping)
+- Visualizacion de logs en texto para el usuario
