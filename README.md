@@ -76,3 +76,6 @@ Visualización:
 - Mapa 2D
 - Mapa de actividades (ej. influence mapping)
 - Visualizacion de logs en texto para el usuario
+
+### Tareas realizadas
+- Backend de inicio, disponible en https://bzolpdnx2e.execute-api.us-east-2.amazonaws.com/dev/api/v1/
