@@ -1,0 +1,5 @@
+flask
+zappa
+flask_cors
+flask-restful
+flask-jwt-extended
