@@ -16,6 +16,7 @@ tareas entre robots exploradores para reducir costos de sensores muy especializa
     - Repartir tareas (asignar una 'profesion' a cada robot y tareas) (Algoritmo)
     - Sensor o mecanismo para saber cuando un robot del grupo falla. (ping continuamente)
 ### Parte II - Visualizar los resultados recolectados por el robot
+Views: https://drive.google.com/file/d/1l335JZExSv__7DqXB2kcp-LEtKdGRA9-/view?usp=sharing
     - Mapa 2D - Estado incial: obscuro. Estado final: la foto del terreno en piezas. Cada pieza del terreno tendria la informacion de ese pedazo.
     - Considerar el alcance espacial de cada medicion/sensor. (delimitación del pedazo medido)
     - Ir iluminando el mapa de 2D conforme los robots vayan explorando. Cada tarea con diferente color.
