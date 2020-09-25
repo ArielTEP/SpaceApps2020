@@ -1,3 +1,43 @@
+# SpaceApps2020
+
+## Installation
+
+To install the backend:
+
+```
+$ cd Backend
+$ pip install -r requirements.txt
+```
+
+To install the frontend:
+
+```
+$ cd frontend
+$ yarn install
+```
+
+## Usage
+
+To run in a PRODUCTION environment (compiling ui to static files to serve with python):
+
+```
+$ ./main.sh
+```
+
+**TODO:** ¿cómo se deployea en AWS? así como está ahorita, sólo compila el front y lo servea con el mismo flask. Hay una línea como comentario de cómo se servearía con otra cosa (i.e. con gunicorn).
+
+To run both back and front in a DEVELOPMENT environment:
+
+```
+$ cd Backend
+$ flask run
+```
+
+```
+$ cd frontend
+$ yarn start
+```
+
 ## Collective exploration robot swarm / Robot swarm visualizer
 
 **Problema:** Exploracion de lugares inalcanzables para el humano y para la vision de los satelites. 
