@@ -1,82 +1,45 @@
-## Collective exploration robot swarm / Robot swarm visualizer
+# Einstant
 
-**Problema:** Exploracion de lugares inalcanzables para el humano y para la vision de los satelites. 
-*Asumiendo que son terrenos planos o transitables por el robot*
+**Objetivo:** Crear consciencia.
 
-**Objetivos:** 
-- Crear una herramienta de visualización que ayude a los científicos o cualquier interesado
-en el terreno a investigar, poder explorar o descubrir zonas donde no haya alcance.
-- Para demostrar la funcionalidad de la herramienta visual, se propone un algortimos de reparticion de 
-tareas entre robots exploradores para reducir costos de sensores muy especializados. 
-- También, se propone visualizar la forma en como los robots adquieren conocimiento del resto. De esta manera, se facilitaría el troubleshooting, habría mayor transparencia de lo que está sucediendo.
+## Minigames concept
 
-### Parte I - Inteligencia colectiva basada en reglas comunes 
-    - Comunicacion entre robots (Lista de objetos o Threads)
-    - Exploracion de forma cooperativa de tal forma que compartan informacion sobre el mapa (Algoritmo)
-    - Repartir tareas (asignar una 'profesion' a cada robot y tareas) (Algoritmo)
-    - Sensor o mecanismo para saber cuando un robot del grupo falla. (ping continuamente)
-### Parte II - Visualizar los resultados recolectados por el robot
-    - Mapa 2D - Estado incial: obscuro. Estado final: la foto del terreno en piezas. Cada pieza del terreno tendria la informacion de ese pedazo.
-    - Considerar el alcance espacial de cada medicion/sensor. (delimitación del pedazo medido)
-    - Ir iluminando el mapa de 2D conforme los robots vayan explorando. Cada tarea con diferente color.
-    - Colocar la textura de la fotografia tomada como el "piso" del robot.
-    - Logging de actividades (texto y grafico de snapshot de actividades).
+**Sketch your propulsion system - 1 minutes**
+*Dar una explicacion de cada sistema.*
+1. Mostrar imagenes al usuario para dibujar.
+2. Medir que tan preciso fue su dibujo, si fue bueno, su puntaje sube.
+3. Al enviar el dibujo al servidor, termina el juego y acumula puntos para el siguiente.
 
-### Experiencia de usuario
-- Cada pieza del mapa tendrá que ser clickeable.
-- Al dar click se deberían visualizar las propiedades de ese pedazo del terreno.
-- Propiedades: Filtrar log por nombre de robot y id del pedazo, resultados de mediciones.
-- En otro lado, mostrar el log de actividades en forma de texto y de forma gráfica en "tiempo real".
+*Las piezas dibujadas en este minijuego seran utilizadas en el siguiente.*
 
-### Definición de conceptos
+**Ensabla tu spacecraft - 1 minutes**
+1. El usuario elige las piezas de un contenedor (drag n drop).
+2. Mostrar lo que tiene que "cocinar" el usuario con las piezas dadas en los contenedores.
+3. Tendrá que crear su spacecraft en el menor tiempo posible.
+4. A medida que pase el tiempo, el score va decrementando.
+5. Mostrar a los usuarios las condiciones fisicas a las que se va a enfrentar su nave para que la diseñe a la medida o lo mejor posible.
 
-Tareas:
-Es el proceso o trabajo que realizará cada robot.
-- Existirá una lista de tareas por cada profesion.
-- Sensores especificos para cada profesión.
+*La nave construida en este minijuego sera utilizada en el siguiente y ultimo minijuego.*
 
-Profesiones:
-- Biologo/Químico
-    - Detector de fosfeno, metano, co2, oxigeno.
-- Geólogo
-    - Humedad de suelo
-    - Campo magnetico
-- Fisico/Luz
-    - Intensidad luminosa
-    - Campo magnetico
-- Meteorologo
-    - Temperatura
-    - Presion
+**Carrera espacial**
+1. Backaground del mapa: Imagenes de la NASA.
+2. Esquivar meteoritos
+3. Disparar a los meteoritos
+4. Habilidad especial disponible: Segun el tipo de spacecraft que construiste.
+5. El score va aumentando entre mas asteroides destruyas y mas distancia recorras para acumular puntos.
 
-Robot general:
-- Sensores tradicionales
-    - Giroscopio
-    - Acelerometro
-    - Sonar
-    - Microfono
+## Ranking system
+- Aerospace Artist - 500+ points
+- Aerospace Engineer - 300+ points
+- Aerospace Enthusiast - 100+ points
+- Aerospace Hobbyst - 50+ points
+- Aerospace Student - 20+ points
 
-Algortimos de reparticion de tareas / algoritmos distribuidos:
-- Pendiente
+## Who wins?
+- Todos van acumulando puntos y obteniendo su respectivo rango segun el ranking system.
 
-Equipo:
-- Erik - server-side setup / AWS - Lambda (Serverless) / Python - Flask / API / Dev server por ahora 
-- Leo - visualizacion, algoritmos, AI
-- Carlos - server-side, visualizacion
-- Ariel - server-side, algoritmos
-- Luis - Couch
+## Ideas por hilar
+- Dado que los minijuegos dependen del tiempo, podemos alterarlo enterminos de gravedad y velocidad.
+- Obstaculo: Agujeros negros, alteracion del tiempo a favor o en contra. Si caes en uno, la nave te succiona por completo.
+    La clave para superar este obstaculo dependera, de que presiones tu habilidad especial en el momento preciso.
 
-Server-side work:
-- Generar datos de sensores
-- Ejecución de los algoritmos
-- Precesamiento de datos y generación de resultados.
-- Enviar resultados en respuesta a peticiones del frontend.
-- Almacenamiento de logs en archivos y base de datos: swarm.log, DynamoDB (NoSQL - JSON data)
-
-Visualización:
-- Mapa 2D
-- Mapa de actividades (ej. influence mapping)
-- Visualizacion de logs en texto para el usuario
-
-### Tareas realizadas
-- Backend de inicio, disponible en https://bzolpdnx2e.execute-api.us-east-2.amazonaws.com/dev/api/v1/
-- Frontend views: https://drive.google.com/file/d/1l335JZExSv__7DqXB2kcp-LEtKdGRA9-/view?usp=sharing
