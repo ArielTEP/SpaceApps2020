@@ -1,7 +1,7 @@
 # SpaceApps2020
 
-Category: Create
-Challenge: Breakthrough
+- **Category:** Create
+- **Challenge:** Breakthrough
 
 ## Installation
 
@@ -41,24 +41,28 @@ $ cd frontend
 $ yarn start
 ```
 
-# Einstant - A fun and easy way to know what breakthrough propulsion systems can do
+# Einstant
+## A fun and easy way to know what breakthrough propulsion systems can do
 
-**Problema:** How do we get more people engaged in breakthrough propulsion systems? 
+**Problem:** How do we get more people engaged in breakthrough propulsion systems? 
 How do we develop more interest in future engineers?
 There is a need for developing advanced propulsion applications and systems that will revolutionize how humans explore space.
 
-**Objetivo:** Showcase both existing, as well as next generation/theoretical, breakthrough spacecraft propulsion in an engaging way.
-## Minigames concept
+**Goal:** Showcase both existing, as well as next generation/theoretical, breakthrough spacecraft propulsion in an engaging way.
 
-**Sketch your propulsion system - 1 minutes**
+## Minigaming concept
+
+**1. Sketch your propulsion system - 1 minute**
+
 *Dar una explicacion de cada sistema.*
+
 1. Mostrar imagenes al usuario para dibujar.
 2. Medir que tan preciso fue su dibujo, si fue bueno, su puntaje sube.
 3. Al enviar el dibujo al servidor, termina el juego y acumula puntos para el siguiente.
 
 *Las piezas dibujadas en este minijuego seran utilizadas en el siguiente.*
 
-**Ensabla tu spacecraft - 1 minutes**
+**2. Ensabla tu spacecraft - 1 minute**
 1. El usuario elige las piezas de un contenedor (drag n drop).
 2. Mostrar lo que tiene que "cocinar" el usuario con las piezas dadas en los contenedores.
 3. Tendrá que crear su spacecraft en el menor tiempo posible.
@@ -67,14 +71,14 @@ There is a need for developing advanced propulsion applications and systems that
 
 *La nave construida en este minijuego sera utilizada en el siguiente y ultimo minijuego.*
 
-**Carrera espacial**
+**3. Carrera espacial**
 1. Backaground del mapa: Imagenes de la NASA.
 2. Esquivar meteoritos
 3. Disparar a los meteoritos
 4. Habilidad especial disponible: Segun el tipo de spacecraft que construiste.
 5. El score va aumentando entre mas asteroides destruyas y mas distancia recorras para acumular puntos.
 
-## Ranking system
+## Ranking system (tentative)
 - Aerospace Artist - 500+ points
 - Aerospace Engineer - 300+ points
 - Aerospace Enthusiast - 100+ points
@@ -92,11 +96,8 @@ There is a need for developing advanced propulsion applications and systems that
 ### Experiencia de usuario
 - Pending details
 
-Equipo:
+Team:
 - Erik - server-side setup / AWS - Lambda (Serverless) / Python - Flask / API / Dev server por ahora 
 - Leo - visualizacion, algoritmos
 - Carlos - server-side, visualizacion
 - Ariel - server-side, algoritmos
-
-Server-side work:
-- Pending
