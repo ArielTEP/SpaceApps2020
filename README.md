@@ -1,7 +1,53 @@
-# Einstant
+# SpaceApps2020
 
-**Objetivo:** Crear consciencia.
+Category: Create
+Challenge: Breakthrough
 
+## Installation
+
+To install the backend:
+
+```
+$ cd Backend
+$ pip install -r requirements.txt
+```
+
+To install the frontend:
+
+```
+$ cd frontend
+$ yarn install
+```
+
+## Usage
+
+To run in a PRODUCTION environment (compiling ui to static files to serve with python):
+
+```
+$ ./main.sh
+```
+
+**TODO:** ¿cómo se deployea en AWS? así como está ahorita, sólo compila el front y lo servea con el mismo flask. Hay una línea como comentario de cómo se servearía con otra cosa (i.e. con gunicorn).
+
+To run both back and front in a DEVELOPMENT environment:
+
+```
+$ cd Backend
+$ flask run
+```
+
+```
+$ cd frontend
+$ yarn start
+```
+
+# Einstant - A fun and easy way to know what breakthrough propulsion systems can do
+
+**Problema:** How do we get more people engaged in breakthrough propulsion systems? 
+How do we develop more interest in future engineers?
+There is a need for developing advanced propulsion applications and systems that will revolutionize how humans explore space.
+
+**Objetivo:** Showcase both existing, as well as next generation/theoretical, breakthrough spacecraft propulsion in an engaging way.
 ## Minigames concept
 
 **Sketch your propulsion system - 1 minutes**
@@ -43,3 +89,14 @@
 - Obstaculo: Agujeros negros, alteracion del tiempo a favor o en contra. Si caes en uno, la nave te succiona por completo.
     La clave para superar este obstaculo dependera, de que presiones tu habilidad especial en el momento preciso.
 
+### Experiencia de usuario
+- Pending details
+
+Equipo:
+- Erik - server-side setup / AWS - Lambda (Serverless) / Python - Flask / API / Dev server por ahora 
+- Leo - visualizacion, algoritmos
+- Carlos - server-side, visualizacion
+- Ariel - server-side, algoritmos
+
+Server-side work:
+- Pending
