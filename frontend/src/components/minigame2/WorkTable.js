@@ -14,29 +14,30 @@ export default function WorkTable(props) {
         e.preventDefault();
         const piece_id = e.dataTransfer.getData('piece_id');
         const piece_src = e.dataTransfer.getData('piece_src');
-        const piece_x = e.dataTransfer.getData('piece_x');
 
         const piece = document.getElementById(piece_id);
         piece.style.display = 'block';
 
-        let ctx = document.getElementById("Canvas").getContext("2d");
-
-        let Img = {};
-        Img.pieza1 = document.createElement("img");
-        Img.pieza1.src = piece_src;
+        var hasMoved = calculatePieces(piece_src);
         
-        var img = document.createElement('img');
-     
-        Img.pieza1.onload = function () {
-            ctx.drawImage (Img.pieza1,0,0, Img.pieza1.width, Img.pieza1.height,
-                draggingPostitionX,draggingPostitionY - 50, 30,50 );
-        };
+        if(hasMoved) {
+            let ctx = document.getElementById("Canvas").getContext("2d");
 
-        calculatePieces(piece_src);
+            let Img = {};
+            Img.pieza1 = document.createElement("img");
+            Img.pieza1.src = piece_src;
+            
+            var img = document.createElement('img');
         
-        const model = document.getElementById("Design");
-        piece.style.display = "none";
-        model.appendChild(piece);
+            Img.pieza1.onload = function () {
+                ctx.drawImage (Img.pieza1,0,0, Img.pieza1.width, Img.pieza1.height,
+                    draggingPostitionX,draggingPostitionY - 50, 30,50 );
+            };
+        
+            const model = document.getElementById("Design");
+            piece.style.display = "none";
+            model.appendChild(piece);
+        }
     }
 
 

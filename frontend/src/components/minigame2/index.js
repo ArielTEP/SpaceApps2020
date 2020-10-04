@@ -14,12 +14,14 @@ import './minigame2.css';
     Parts[5] = '/minigame2/assets/spacecraft/sc6.png';
 
     const ValidParts = [];
-    ValidParts[0] = '/minigame2/assets/spacecraft/parts_sc1/sc1p1.png';
+    ValidParts[0] = Parts[0];
+    ValidParts[1] = Parts[2];
+    ValidParts[2] = Parts[4];
+    /*ValidParts[0] = '/minigame2/assets/spacecraft/parts_sc1/sc1p1.png';
     ValidParts[1] = '/minigame2/assets/spacecraft/parts_sc1/sc1p2.png';
-    ValidParts[2] = '/minigame2/assets/spacecraft/parts_sc1/sc1p3.png';
+    ValidParts[2] = '/minigame2/assets/spacecraft/parts_sc1/sc1p3.png';*/
 
-    const firstValids = 3;
-    var goodParts = firstValids;
+    var goodParts = ValidParts.length;
     var t = 0;
 
     const TopParts = [];
@@ -59,17 +61,17 @@ export default function MinigameTwo(props) {
 
     const calculatePieces = (piece) => {
         console.log("Validate " + piece);
+        var valid = false;
         setScore2(score2 - 50);
-        for(var i = 0; i < firstValids; i++) {
-            console.log("Comp " + Parts[i]);
-            if(piece.includes(Parts[i])) {
-                setScore2(score2 + 100);
-                goodParts--;
-                t++;
-                if(goodParts == 0)
-                    finishMinigame();
-            }
+        if(piece.includes(ValidParts[t])) {
+            valid = true;
+            setScore2(score2 + 100);
+            goodParts--;
+            t++;
+            if(goodParts == 0)
+                finishMinigame();
         }
+        return valid;
     }
 
     const finishMinigame = () => {
