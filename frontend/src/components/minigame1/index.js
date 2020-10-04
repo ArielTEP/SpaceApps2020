@@ -22,7 +22,7 @@ export default function MinigameOne(props) {
     const [score, setScore] = useState(0)
 
     // Timer hook. Set to TIME_PER_PART seconds per piece
-    const TIME_PER_PART = 7
+    const TIME_PER_PART = 10
     const { seconds, restart } = useTimer({ expiryTimestamp: get_expiry_timestamp(TIME_PER_PART), onExpire: () => calculateScore() })
 
     // This will control the current part to draw
@@ -44,6 +44,7 @@ export default function MinigameOne(props) {
     const childRef = useRef();
     const calculateScore = () => {
         const drawing = childRef.current.getImage()
+        console.log(drawing)
         // Compare with target if something was drawn
         if( drawing !== null ){
             const target = part.target
@@ -73,7 +74,7 @@ export default function MinigameOne(props) {
             </div>
             <div style={{flex:1, display:"flex", flexDirection:"row"}}>
                 <div style={{flex:1, backgroundImage: `url(${part.base})`}} className="mg1-drawer-box mg1-drawer-target" />
-                <div style={{flex:1 }} className="mg1-drawer-box">
+                <div style={{flex:1, }}>
                     <AutoSizer>
                         {({height, width}) => (
                             <FreeCanvas ref={childRef} width={width} height={height} targetWidth={part.targetWidth} targetHeight={part.targetHeight} />

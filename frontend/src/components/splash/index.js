@@ -6,7 +6,7 @@ function Splash(props) {
   const {onReady} = props
 
   function chooseRandomPropulsionSystem() {
-    let randomInteger = Math.floor(Math.random() * 6)
+    let randomInteger = Math.floor(Math.random() * 5)
     return PROPULSION_SYSTEMS[randomInteger]
   }
 
