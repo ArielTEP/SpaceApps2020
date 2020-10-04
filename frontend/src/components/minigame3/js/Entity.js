@@ -178,8 +178,8 @@ class Enemy extends Actor{
         let diffX = player.x - this.x;
         this.y += this.spdY;
 
-        if(diffX >= 0) this.x += 5;
-        else this.x -=5;
+        if(diffX > 0) this.x += 5;
+        else this.x -= 5;
         // if(diffY > 0) this.y += 5;
         // else this.y -=5;
 
