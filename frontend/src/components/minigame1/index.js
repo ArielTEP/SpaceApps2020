@@ -35,6 +35,7 @@ export default function MinigameOne(props) {
             restart( get_expiry_timestamp(TIME_PER_PART) )
         }
         else {
+            // TODO: el ultimo score no se esta guardando
             onFinish(score, sketchedParts)
         }
     }
