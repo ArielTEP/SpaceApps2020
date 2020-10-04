@@ -27,13 +27,19 @@ class Entity{
 
     draw(){
         ctx.save();
-        let x = this.x-this.width/2;
+        //let x = this.x-this.width/2;
         let y = this.y-this.height/2;
         // ctx.drawImage(this.img,x,y,50,50);
 
         // lets make everything move around the player
-        let offsetFromPlayerX = this.x - player.x;
-        let offsetFromPlayerY = this.y - player.y;
+        let x = this.x - player.x;
+        // let y = this.y - player.y;
+
+        x += CTXWIDTH/2;
+        //y += CTXHEIGHT/2;
+
+        x -= this.width/2;
+        // y -= this.height/2;
 
         ctx.drawImage(this.img, 0,0, this.img.width, 
             this.img.height, x, y, this.width, this.height);
