@@ -2,7 +2,6 @@ import React, {useState} from "react";
 import Piece from './Piece';
 import WorkTable from './WorkTable';
 import Conveyor from './Conveyor';
-//import part1 from '../../../public/minigame2/assets/spacecraft/sc1.png';
 import './minigame2.css';
 
 export default function MinigameTwo(props) {

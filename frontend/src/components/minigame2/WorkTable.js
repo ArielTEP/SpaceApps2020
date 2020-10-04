@@ -18,29 +18,24 @@ export default function WorkTable(props) {
         const piece = document.getElementById(piece_id);
         piece.style.display = 'block';
 
-        //setResultSpaceCraft("url('" + piece.src + "')");
-        //piece.style.left = draggingPostitionX;
-        //piece.style.top = draggingPostitionY;
-        //piece.setAttribute("x", draggingPostitionX);
-
         let ctx = document.getElementById("Canvas").getContext("2d");
 
         let Img = {};
-        Img.pieza1 = new Image();
-        //Img.pieza1.src = piece_src;
-        Img.pieza1.src = "/minigame2/assets/spacecraft/sc1.png";
-        //Img.pieza1.src = process.env.PUBLIC_URL + "../../assets/assets/spacecraft/sc1.png";
-
-        //Img.pieza1.src = "https://raw.githubusercontent.com/NestorPlasencia/pikachu-puzzle/master/9.png";
+        Img.pieza1 = document.createElement("img");
+        Img.pieza1.src = piece_src;
+        
+        var img = document.createElement('img');
+     
+        Img.pieza1.onload = function () {
+            ctx.drawImage (Img.pieza1,0,0, Img.pieza1.width, Img.pieza1.height,
+                draggingPostitionX-25,draggingPostitionY-50, 20,40 );
+        };
+     
+        e.target.appendChild(piece);
 
         console.log(Img.pieza1.src);
-        console.log(draggingPostitionX);
-        console.log(draggingPostitionY);
-
-        /*ctx.drawImage(Img.pieza1,0,0, Img.pieza1.width, Img.pieza1.height,
-                0,10,Img.pieza1.width, Img.pieza1.height);*/
-        ctx.drawImage (Img.pieza1,0,0, Img.pieza1.width, Img.pieza1.height,
-            draggingPostitionX-25,draggingPostitionY-50,100,100);
+        //console.log(draggingPostitionX);
+        //console.log(draggingPostitionY);
     }
 
 
