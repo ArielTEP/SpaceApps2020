@@ -22,7 +22,7 @@ export default function MinigameOne(props) {
     const [score, setScore] = useState(0)
 
     // Timer hook. Set to TIME_PER_PART seconds per piece
-    const TIME_PER_PART = 8
+    const TIME_PER_PART = 7
     const { seconds, restart } = useTimer({ expiryTimestamp: get_expiry_timestamp(TIME_PER_PART), onExpire: () => calculateScore() })
 
     // This will control the current part to draw
