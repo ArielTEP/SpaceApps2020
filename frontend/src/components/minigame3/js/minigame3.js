@@ -2,7 +2,8 @@ let ctx = document.getElementById("ctx").
 getContext("2d");
 ctx.canvas.width  = window.innerWidth;
 ctx.canvas.height = window.innerHeight;
-ctx.font = '30px Arial';
+ctx.font = '30px Arial white';
+ctx.fillStyle = "white";
 
 // utilities and constants
 const CTXWIDTH = ctx.canvas.width;
@@ -13,6 +14,8 @@ const COLLIDX = 25;
 let timeWhenGameStarted = Date.now();	//return time in ms
 let frameCount = 0;
 let score = 0;
+let offset = 0;
+let time = 0;
 
 // load images
 let Img = {};
@@ -31,6 +34,8 @@ Img.upgrade1.src = "img/pt2.png";
 Img.upgrade2 = new Image();
 Img.upgrade2.src = "img/g1.png";
 
+Img.map = new Image();
+Img.map.src = "img/map.png";
 
 
 
@@ -83,13 +88,19 @@ document.onkeyup = function(event){
 		player.pressingUp = false;
 }
 
+
 update = function(){
 	ctx.clearRect(0,0,CTXWIDTH,CTXHEIGHT);
+	drawMap(offset);
 	frameCount++;
-	score++;
+	//score++;
+	offset+=2;
  
 	if(frameCount % 25 === 0)	//every 1 sec
-        randomlyGenerateEnemy();
+	{
+		randomlyGenerateEnemy();
+		time++;
+	}
         
     if(frameCount % 75 === 0)	//every 3 sec
         randomlyGenerateUpgrade();
@@ -109,6 +120,7 @@ update = function(){
 	player.update();
 	ctx.fillText( "Hits: " + player.hp,0,30);
 	ctx.fillText('Score: ' + score,200,30);
+	ctx.fillText('Time: ' + Math.floor(time/60) + ":" + time % 60,400,30);
 }
 
 startNewGame = function(){
@@ -123,6 +135,17 @@ startNewGame = function(){
 	randomlyGenerateEnemy();
 	randomlyGenerateEnemy();
     randomlyGenerateEnemy();
+}
+
+drawMap = function(offsetY){
+	// If the player is in the middle of width,
+	// then the map x starts at 0
+	// If the player x increases, xmap decreases.
+	let x = player.x - CTXWIDTH/2;
+
+	if (offsetY === Img.map.height-CTXHEIGHT) offset = 0;
+	ctx.drawImage(Img.map,x,Img.map.height-CTXHEIGHT-offsetY, Img.map.width, Img.map.height,
+		0,0,Img.map.width, Img.map.height);
 }
 
 

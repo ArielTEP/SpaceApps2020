@@ -29,10 +29,14 @@ class Entity{
         ctx.save();
         let x = this.x-this.width/2;
         let y = this.y-this.height/2;
-        ctx.drawImage(this.img,x,y,50,50);
+        // ctx.drawImage(this.img,x,y,50,50);
 
+        // lets make everything move around the player
+        let offsetFromPlayerX = this.x - player.x;
+        let offsetFromPlayerY = this.y - player.y;
 
-
+        ctx.drawImage(this.img, 0,0, this.img.width, 
+            this.img.height, x, y, this.width, this.height);
 		ctx.restore();
     }
 
@@ -91,7 +95,7 @@ class Actor extends Entity{
     }
 
     performAttack(){
-        console.log("Actor::performAttack()")
+        // console.log("Actor::performAttack()")
 		if(this.attackCounter > 25){	//every 1 sec
 			this.attackCounter = 0;
 			generateBullet(this);
@@ -116,7 +120,8 @@ class Actor extends Entity{
 // Spacecraft class
 class Player extends Actor{
     constructor(){
-        super('player','myId',CTXWIDTH/2,CTXHEIGHT - 100,30,5,20,20,Img.player,10,1);
+        super('player','myId',CTXWIDTH/2,CTXHEIGHT - 100,30,3,70,70,
+        Img.player,10,1);
         this.pressingDown = false;
         this.pressingUp = false;
         this.pressingLeft = false;
@@ -159,6 +164,7 @@ class Enemy extends Actor{
     constructor(id,x,y,spdX,spdY,width,height){
         super('enemy',id,x,y,spdX,spdY,width,height,Img.enemy,10,1);
         this.timer = 0;
+        this.impacted = false; // flag
     }
 
     // override method from parent class
@@ -173,8 +179,9 @@ class Enemy extends Actor{
         }
 
         var isColliding = player.testCollision(this);
-        if(isColliding){
+        if(isColliding && this.impacted == false){
             player.hp = player.hp - 1;
+            this.impacted = true;
         }
 
         if(toRemove){
@@ -195,8 +202,8 @@ function randomlyGenerateEnemy(){
 	//Math.random() returns a number between 0 and 1
 	let x = Math.random()*CTXWIDTH;
 	let y = Math.random()*100;
-	let height = 10 + Math.random()*30;	//between 10 and 40
-	let width = CTXWIDTH/2 + Math.random()*50;
+	let height = 50 + Math.random()*30;	//between 10 and 40
+	let width = 30 + Math.random()*50;
 	let id = Math.random();
 	let spdX = -5 + Math.random() * 5;
 	let spdY = 10 + Math.random() * 20;
@@ -234,8 +241,8 @@ function randomlyGenerateUpgrade(){
 //Math.random() returns a number between 0 and 1
     let x = Math.random()*CTXWIDTH;
     let y = Math.random()*CTXHEIGHT;
-    let height = 10;
-    let width = 10;
+    let height = 30;
+    let width = 30;
     let id = Math.random();
     let spdX = 0;
     let spdY = 0;
@@ -300,8 +307,8 @@ function generateBullet(actor, aimOverwrite){
 		angle = aimOverwrite;
 	else angle = actor.aimAngle;
  
-	let spdX = Math.cos(angle/180*Math.PI)*5;
-    let spdY = Math.sin(angle/180*Math.PI)*5;
+	let spdX = Math.cos(angle/180*Math.PI)*20;
+    let spdY = Math.sin(angle/180*Math.PI)*20;
 
 	makeBullet(id,x,y,spdX,spdY,width,height);
 }
