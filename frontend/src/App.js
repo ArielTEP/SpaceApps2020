@@ -7,9 +7,7 @@ import Leaderboard from './components/leaderboard'
 import './App.css';
 
 function App() {
-
-  const [score, setScore] = useState(0)
-  const [currentGame, goToGame] = useState(0)
+  const [status, setStatus] = useState({score:0, currentGame:0})
   // Store the metadata of the propulsion system
   const [propulsionSystem, setPropulsionSystem] = useState(0)
 
@@ -17,33 +15,29 @@ function App() {
   const startGame = (randomPropulsionSystem) => {
     // propulsionSystem = randomPropulsionSystem
     setPropulsionSystem(randomPropulsionSystem)
-    goToGame(1)
+    setStatus({score:0, currentGame:1})
   }
 
   // Callback for first minigame
   const onMinigameOneFinishes = (newScore) => {
-    // update the current score
-    setScore(newScore)
-    // change game (this causes the next component to render)
-    goToGame(2)
+    // update the current score and change game (this causes the next component to render)
+    setStatus({score:newScore, currentGame:2})
   }
 
   // Callback for second minigame
   const onMinigameTwoFinishes = (newScore) => {
-    // update the current score
-    setScore(newScore)
-    // change game (this causes the next component to render)
-    goToGame(3)
+    // update the current score and change game (this causes the next component to render)
+    setStatus({score:newScore, currentGame:3})
   }
 
   // Callback for third minigame
   const onMinigameThreeFinishes = (newScore) => {
-    // update the current score
-    setScore(newScore)
-    // change game (this causes the next component to render)
-    goToGame(4)
+    // update the current score and change game (this causes the next component to render)
+    setStatus({score:newScore, currentGame:4})
   }
 
+  const currentGame = status.currentGame
+  const score = status.score
   return (
     <div style={{display: "flex", flexDirection:"row", height:"100vh"}}>
       <div style={{flex:1}}>

@@ -1,7 +1,10 @@
-import React, {useState, useEffect} from "react"
+import React, {useState, useRef} from "react"
 import { useTimer } from 'react-timer-hook'
-import CraftDrawer from './CraftDrawer'
+import FreeCanvas from './Canvas'
+import AutoSizer from 'react-virtualized-auto-sizer'
 import './index.css';
+// Utils
+import compare from "./comparer"
 
 function get_expiry_timestamp(seconds) {
     const time = new Date()
@@ -10,23 +13,21 @@ function get_expiry_timestamp(seconds) {
 }
 
 export default function MinigameOne(props) {
-    const {style, onFinish, spacecraft, ...rest} = props
+    const {style, onFinish, spacecraft } = props
 
     // This will keep track of the score
     const [score, setScore] = useState(0)
 
     // Timer hook. Set to TIME_PER_PART seconds per piece
-    const TIME_PER_PART = 6
-    const {
-        seconds,
-        restart
-    } = useTimer({ expiryTimestamp: get_expiry_timestamp(TIME_PER_PART), onExpire: () => switchPart() })
+    const TIME_PER_PART = 10
+    const { seconds, restart } = useTimer({ expiryTimestamp: get_expiry_timestamp(TIME_PER_PART), onExpire: () => calculateScore() })
 
     // This will control the current part to draw
     const [currentPart, setCurrentPart] = useState(0)
     const switchPart = () => {
         const newPartIndex = currentPart+1
         if( spacecraft.parts.length > newPartIndex ) {
+            // Update score based on the current drawing
             setCurrentPart(newPartIndex)
             restart( get_expiry_timestamp(TIME_PER_PART) )
         }
@@ -35,17 +36,40 @@ export default function MinigameOne(props) {
         }
     }
 
-    // This will be called when a part has been drawn
-    const onPartFinished = (partScore) => {
-        setScore(score + partScore)
-        switchPart()
+    // Score drawing
+    const childRef = useRef();
+    const calculateScore = () => {
+        const drawing = childRef.current.getImage()
+        // Compare with target if something was drawn
+        if( drawing !== null ){
+            const target = part.target
+            // console.log(drawing)
+            // Perform comparison
+            compare(target, drawing, (result) => {
+                setScore(score + result)
+                // Next part
+                switchPart()
+            })
+        }
+        else {
+            switchPart()
+        }
     }
 
-
+    const part = spacecraft.parts[currentPart]
     return (
         <div style={{...style, display:"flex", flexDirection:"column", height:"100%"}}>
-            Timer: {seconds}
-            <CraftDrawer style={{flex:1}} part={spacecraft.parts[currentPart]} onPartFinished={onPartFinished} />
+            Timer: {seconds}. Score: {score}
+            <div style={{flex:1, display:"flex", flexDirection:"row"}}>
+                <div style={{flex:1, backgroundImage: `url(${part.base})`}} className="mg1-drawer-box mg1-drawer-target" />
+                <div style={{flex:1 }} className="mg1-drawer-box">
+                    <AutoSizer>
+                        {({height, width}) => (
+                            <FreeCanvas ref={childRef} width={width} height={height} targetWidth={part.targetWidth} targetHeight={part.targetHeight} />
+                        )}
+                    </AutoSizer>
+                </div>
+            </div>
         </div>
     )
 }

@@ -46,8 +46,8 @@ function scaleImageData(imageData, targetWidth, targetHeight){
     var scaleCtx = scaleCanvas.getContext("2d");
     scaleCtx.drawImage(newCanvas, 0, 0,targetWidth,targetHeight);
     // return image either as data or blobUrl
-    var scaledImageData =  scaleCtx.getImageData(0, 0, scaleCanvas.width, scaleCanvas.height);
-    // var scaledImageData = scaleCanvas.toDataURL()
+    // var scaledImageData =  scaleCtx.getImageData(0, 0, scaleCanvas.width, scaleCanvas.height);
+    var scaledImageData = scaleCanvas.toDataURL()
     return scaledImageData;
 }
 
@@ -74,14 +74,15 @@ const MyCanvas = forwardRef((props, ref) => {
               context.beginPath();
             }
             // Pass back to parent
-            // console.log(fixedImage)
             return fixedImage
         }
 
       }));
 
+    // const lineWidth = 5; // para calcar
+    const lineWidth = 10; // para jugar
     return (        
-        <ReactPaint ref={childRef} brushCol="#000000" lineWidth={5} width={width} height={height}/>
+        <ReactPaint ref={childRef} brushCol="#000000" lineWidth={lineWidth} width={width} height={height}/>
     )
 })
 

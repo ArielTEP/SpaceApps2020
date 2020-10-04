@@ -11,32 +11,32 @@ function Splash(props) {
           {
             base : "/minigame1/parts_sc6/sc6p0.png",
             target : "/minigame1/parts_sc6/sc6p0.target.png",
-            targetWidth: 337,
-            targetHeight: 685
+            targetWidth: 500,
+            targetHeight: 500
           },
           {
             base : "/minigame1/parts_sc6/sc6p1.png",
             target : "/minigame1/parts_sc6/sc6p1.target.png",
-            targetWidth: 337,
-            targetHeight: 685
+            targetWidth: 205,
+            targetHeight: 625
           },
           {
             base : "/minigame1/parts_sc6/sc6p2.png",
             target : "/minigame1/parts_sc6/sc6p2.target.png",
-            targetWidth: 337,
-            targetHeight: 685
+            targetWidth: 220,
+            targetHeight: 650
           },
           {
             base : "/minigame1/parts_sc6/sc6p3.png",
             target : "/minigame1/parts_sc6/sc6p3.target.png",
-            targetWidth: 337,
-            targetHeight: 685
+            targetWidth: 230,
+            targetHeight: 650
           },
           {
             base : "/minigame1/parts_sc6/sc6p4.png",
             target : "/minigame1/parts_sc6/sc6p4.target.png",
-            targetWidth: 337,
-            targetHeight: 685
+            targetWidth: 500,
+            targetHeight: 780
           },
         ]
       }
