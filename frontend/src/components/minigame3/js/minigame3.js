@@ -88,7 +88,7 @@ document.onkeyup = function(event){
 		player.pressingUp = false;
 }
 
-
+let nE = 0;
 update = function(){
 	ctx.clearRect(0,0,CTXWIDTH,CTXHEIGHT);
 	currentMap.draw(offset);
@@ -98,11 +98,27 @@ update = function(){
  
 	if(frameCount % 25 === 0)	//every 1 sec
 	{
-		randomlyGenerateEnemy();
+		//randomlyGenerateEnemy();
+		for (let i = 0; i < nE; i++){
+			randomlyGenerateEnemy();
+			console.log(nE);
+		}
 		time++;
 	}
+
+
+	// If player makes it at 10 secs, generate three enemies
+	// Levels of difficulty
+	if (time < 10 ) {
+		nE = 2;
+	}else if(time >= 10 && time < 20){
+		nE = 4;
+	}else{
+		nE = 8;
+	}
+
         
-    if(frameCount % 75 === 0)	//every 3 sec
+    if(frameCount % 125 === 0)	//every 5 sec
         randomlyGenerateUpgrade();
         
     for(var key in bulletList){
@@ -118,9 +134,9 @@ update = function(){
     }
     
 	player.update();
-	ctx.fillText( "Hits: " + player.hp,0,30);
+	//ctx.fillText( "Resistance: " + player.hp,0,30);
 	ctx.fillText('Score: ' + score,200,30);
-	ctx.fillText('Time: ' + Math.floor(time/60) + ":" + time % 60,400,30);
+	ctx.fillText('Time survived in space: ' + Math.floor(time/60) + ":" + time % 60,400,30);
 }
 
 startNewGame = function(){
@@ -134,7 +150,7 @@ startNewGame = function(){
     
 	randomlyGenerateEnemy();
 	randomlyGenerateEnemy();
-    randomlyGenerateEnemy();
+    //randomlyGenerateEnemy();
 }
 
 

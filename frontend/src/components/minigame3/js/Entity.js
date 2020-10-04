@@ -87,6 +87,7 @@ class Actor extends Entity{
     constructor(type,id,x,y,spdX,spdY,width,height,img,hp,atkSpd){
         super(type, id, x, y, spdX, spdY, width, height, img);
         // for actors
+        this.maxHp = hp;
         this.hp = hp;
         this.atkSpd = atkSpd;
         this.attackCounter = 0;
@@ -165,6 +166,22 @@ class Player extends Actor{
             startNewGame();
         }
     }
+
+    // override draw to add the bar
+    draw(){
+        super.draw();
+        let x = this.x - player.x + CTXWIDTH/2;
+        //let y = this.y - player.y + CTXHEIGHT/2 - this.height/2 - 20; 
+
+        ctx.save();
+        ctx.fillStyle = 'red';
+        let w = 100 * this.hp / this.maxHp;
+        if (w < 0) w = 0;
+        ctx.fillRect(x-50,this.y-this.height,w, 10);
+        ctx.strokeStyle = 'black';
+        ctx.strokeRect(x-50,this.y-this.height,100, 10);
+        ctx.restore();
+    }
 }
 
 class Enemy extends Actor{
@@ -240,7 +257,7 @@ class Upgrade extends Entity{
         let isColliding = player.testCollision(this);
 		if(isColliding){
 			if(this.category === 'score')
-				score += 1000;
+				score += 1;
 			if(this.category === 'atkSpd')
 				player.atkSpd += 3;
 			delete upgradeList[this.id];
@@ -295,6 +312,7 @@ class Bullet extends Entity{
             
             let isColliding = this.testCollision(enemyList[key2]);
             if(isColliding){
+                score+=10;
                 toRemove = true;
                 delete enemyList[key2];
                 break;
