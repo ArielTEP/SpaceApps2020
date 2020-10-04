@@ -1,5 +1,5 @@
-import React, {useState, useEffect} from 'react';
-import logo from './logo.svg';
+import React, {useState} from 'react';
+import SplashScreen from './components/splash'
 import MinigameOne from './components/minigame1'
 import MinigameTwo from './components/minigame2'
 import MinigameThree from './components/minigame3'
@@ -9,7 +9,16 @@ import './App.css';
 function App() {
 
   const [score, setScore] = useState(0)
-  const [currentGame, goToGame] = useState(1)
+  const [currentGame, goToGame] = useState(0)
+  // Store the metadata of the propulsion system
+  const [propulsionSystem, setPropulsionSystem] = useState(0)
+
+  // Callback to start game
+  const startGame = (randomPropulsionSystem) => {
+    // propulsionSystem = randomPropulsionSystem
+    setPropulsionSystem(randomPropulsionSystem)
+    goToGame(1)
+  }
 
   // Callback for first minigame
   const onMinigameOneFinishes = (newScore) => {
@@ -38,7 +47,8 @@ function App() {
   return (
     <div style={{display: "flex", flexDirection:"row", height:"100vh"}}>
       <div style={{flex:1}}>
-        {currentGame === 1 && <MinigameOne onFinish={onMinigameOneFinishes} /> }
+        {currentGame === 0 && <SplashScreen onReady={startGame} /> }
+        {currentGame === 1 && <MinigameOne onFinish={onMinigameOneFinishes} spacecraft={propulsionSystem.minigame1} /> }
         {currentGame === 2 && <MinigameTwo onFinish={onMinigameTwoFinishes} score={score} /> }
         {currentGame === 3 && <MinigameThree onFinish={onMinigameThreeFinishes} score={score} /> }
         {currentGame === 4 && <Leaderboard score={score} />  }

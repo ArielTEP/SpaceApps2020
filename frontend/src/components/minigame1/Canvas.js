@@ -24,7 +24,10 @@ function cropImageFromCanvas(ctx) {
 
   w = 1 + pix.x[n] - pix.x[0];
   h = 1 + pix.y[n] - pix.y[0];
-  var imageData = ctx.getImageData(pix.x[0], pix.y[0], w, h);
+  var imageData = null
+  if( w>0 && h>0) {
+    imageData = ctx.getImageData(pix.x[0], pix.y[0], w, h);
+  }
   return imageData
 }
 
@@ -59,16 +62,20 @@ const MyCanvas = forwardRef((props, ref) => {
             if (!canvasRef.current) {
                 return;
             }
+            let fixedImage = null
             // Get cropped drawing
             const canvas = canvasRef.current.canvas;
             const context = canvas.getContext('2d');
             const cropped = cropImageFromCanvas(context)
-            const newImage = scaleImageData(cropped, targetWidth, targetHeight)
-            // Clear canvas
-            context.clearRect(0, 0, canvas.width, canvas.height);
+            if( cropped ) {
+              fixedImage = scaleImageData(cropped, targetWidth, targetHeight)
+              // Clear canvas
+              context.clearRect(0, 0, canvas.width, canvas.height);
+              context.beginPath();
+            }
             // Pass back to parent
-            console.log(newImage)
-            return newImage
+            // console.log(fixedImage)
+            return fixedImage
         }
 
       }));
