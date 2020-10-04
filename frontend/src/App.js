@@ -6,6 +6,9 @@ import MinigameThree from './components/minigame3'
 import Leaderboard from './components/leaderboard'
 import './App.css';
 
+// Store state of the spacecraft as the game passes
+let spacecraft = {}
+
 function App() {
   const [status, setStatus] = useState({score:0, currentGame:0})
   // Store the metadata of the propulsion system
@@ -19,7 +22,9 @@ function App() {
   }
 
   // Callback for first minigame
-  const onMinigameOneFinishes = (newScore) => {
+  const onMinigameOneFinishes = (newScore, sketchedParts) => {
+    // store the drawn parts of minigame 1
+    spacecraft['parts'] = sketchedParts
     // update the current score and change game (this causes the next component to render)
     setStatus({score:newScore, currentGame:2})
   }
@@ -43,7 +48,7 @@ function App() {
       <div style={{flex:1}}>
         {currentGame === 0 && <SplashScreen onReady={startGame} /> }
         {currentGame === 1 && <MinigameOne onFinish={onMinigameOneFinishes} spacecraft={propulsionSystem.minigame1} /> }
-        {currentGame === 2 && <MinigameTwo onFinish={onMinigameTwoFinishes} score={score} /> }
+        {currentGame === 2 && <MinigameTwo parts={spacecraft.parts} onFinish={onMinigameTwoFinishes} score={score} /> }
         {currentGame === 3 && <MinigameThree onFinish={onMinigameThreeFinishes} score={score} /> }
         {currentGame === 4 && <Leaderboard score={score} />  }
       </div>

@@ -1,4 +1,4 @@
-import React, {useRef, useState, useCallback, useEffect, useImperativeHandle, forwardRef} from "react"
+import React, {useRef, useImperativeHandle, forwardRef} from "react"
 import ReactPaint from './Paint';
 
 // https://stackoverflow.com/questions/11796554/automatically-crop-html5-canvas-to-contents#comment106458193_22267731
@@ -24,11 +24,11 @@ function cropImageFromCanvas(ctx) {
 
   w = 1 + pix.x[n] - pix.x[0];
   h = 1 + pix.y[n] - pix.y[0];
-  var imageData = null
+  var resultData = null
   if( w>0 && h>0) {
-    imageData = ctx.getImageData(pix.x[0], pix.y[0], w, h);
+    resultData = ctx.getImageData(pix.x[0], pix.y[0], w, h);
   }
-  return imageData
+  return resultData
 }
 
 // https://stackoverflow.com/questions/3448347/how-to-scale-an-imagedata-in-html-canvas
