@@ -70,8 +70,7 @@ const MyCanvas = forwardRef((props, ref) => {
             if( cropped ) {
               fixedImage = scaleImageData(cropped, targetWidth, targetHeight)
               // Clear canvas
-              context.clearRect(0, 0, canvas.width, canvas.height);
-              context.beginPath();
+              canvasRef.current.clear()
             }
             // Pass back to parent
             return fixedImage

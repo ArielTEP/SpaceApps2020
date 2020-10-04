@@ -28,6 +28,15 @@ export default class ReactPaint extends Component {
       mouseDown: false,
       mouseLoc: [0, 0],
     };
+
+    this.clear = () => {
+      // prevent from drawing more
+      this.setState({ mouseDown: false })
+      // clear
+      let context = this.canvas.getContext('2d')
+      context.clearRect(0, 0, this.canvas.width, this.canvas.height);
+      context.beginPath();
+    }
   }
 
   componentDidMount() {
