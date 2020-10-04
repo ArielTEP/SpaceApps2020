@@ -1,5 +1,6 @@
 import React, {useState, useEffect, useRef} from "react"
 import FreeCanvas from './Canvas'
+import AutoSizer from 'react-virtualized-auto-sizer'
 
 export default function CraftDrawer(props) {
     const {style, partIndex, onPartFinished, ...rest} = props
@@ -26,7 +27,11 @@ export default function CraftDrawer(props) {
 
             </div>
             <div style={{flex:1}} className="mg1-drawer-box">
-                <FreeCanvas ref={childRef} width={600} height={800} targetWidth={337} targetHeight={685} />
+                <AutoSizer>
+                    {({height, width}) => (
+                        <FreeCanvas ref={childRef} width={width} height={height} targetWidth={337} targetHeight={685} />
+                    )}
+                </AutoSizer>
             </div>
         </div>
     )
