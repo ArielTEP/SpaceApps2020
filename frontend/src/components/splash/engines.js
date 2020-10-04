@@ -3,7 +3,7 @@ const rocket_engine = {
   id: 1,
   name: "ROCKET ENGINE",
   description: "these guys have been around since the space-race began. They produce thrust via Newton's third law of motion by ejecting mass in the opposite direction of movement. This requires a lot of energy and is usually produced by combustion.",
-  image: "/spacecrafts/sc1.png",
+  image: "/spacecrafts/sc5.png",
   minigame1 : {
     parts : [
       {

@@ -27,7 +27,7 @@ export default function MinigameOne(props) {
 
     // This will control the current part to draw
     const [currentPart, setCurrentPart] = useState(0)
-    const switchPart = () => {
+    const switchPart = (newScore) => {
         const newPartIndex = currentPart+1
         if( spacecraft.parts.length > newPartIndex ) {
             // Update score based on the current drawing
@@ -35,8 +35,7 @@ export default function MinigameOne(props) {
             restart( get_expiry_timestamp(TIME_PER_PART) )
         }
         else {
-            // TODO: el ultimo score no se esta guardando
-            onFinish(score, sketchedParts)
+            onFinish(newScore, sketchedParts)
         }
     }
 
@@ -44,7 +43,6 @@ export default function MinigameOne(props) {
     const childRef = useRef();
     const calculateScore = () => {
         const drawing = childRef.current.getImage()
-        console.log(drawing)
         // Compare with target if something was drawn
         if( drawing !== null ){
             const target = part.target
@@ -54,7 +52,7 @@ export default function MinigameOne(props) {
             compare(target, drawing, (result) => {
                 setScore(score + result)
                 // Next part
-                switchPart()
+                switchPart(score+result)
             })
         }
         else {
@@ -74,7 +72,7 @@ export default function MinigameOne(props) {
             </div>
             <div style={{flex:1, display:"flex", flexDirection:"row"}}>
                 <div style={{flex:1, backgroundImage: `url(${part.base})`}} className="mg1-drawer-box mg1-drawer-target" />
-                <div style={{flex:1, }}>
+                <div style={{flex:1, }}  className="mg1-drawer-box">
                     <AutoSizer>
                         {({height, width}) => (
                             <FreeCanvas ref={childRef} width={width} height={height} targetWidth={part.targetWidth} targetHeight={part.targetHeight} />

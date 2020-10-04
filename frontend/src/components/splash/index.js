@@ -18,17 +18,17 @@ function Splash(props) {
         <div style={{display:"flex", flexDirection:"row", padding:"0px 150px 0px 150px"}}>
           <div style={{flex:1, marginRight:"15px"}}>
             <p>
-              Go on a journey is starting from designing and making your own spacecraft from scratch to travelling accross the universe trying to survive!
+              Go on a journey against time is starting from designing and making your own spacecraft from scratch to travelling accross the universe trying to survive!
             </p>
             <ol>
               <li>Draw the parts you need to build a {propulsionObject.name} </li>
               <li>Assemble the parts to begin the journey</li>
-              <li>Survive travelling accross the universe</li>
+              <li>Survive as long as you can without being destroyed</li>
             </ol> 
             <p>
-              Your propulsion system for this journey is going to be <b>{propulsionObject.name}</b>! Click button to start <br/>
+              Your propulsion system for this journey is going to be <b>{propulsionObject.name}</b>! <br/> Do you think you can beat the clock?
             </p>
-            <button onClick={() => {onReady(propulsionObject)} }>I wanna go on an adventure</button>
+            <button onClick={() => {onReady(propulsionObject)} }>Let's do it</button>
           </div>
           <div className="card" style={{flex:1, backgroundColor:"white", marginLeft:"15px"}}>
             <div className="card-title">{propulsionObject.name}</div>
