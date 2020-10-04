@@ -280,14 +280,14 @@ class Bullet extends Entity{
         }
     
         for(let key2 in enemyList){
-            /*
+            
             let isColliding = this.testCollision(enemyList[key2]);
             if(isColliding){
                 toRemove = true;
                 delete enemyList[key2];
                 break;
             }	
-            */
+            
         }
         if(toRemove){
             delete bulletList[this.id];
