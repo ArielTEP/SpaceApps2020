@@ -1,4 +1,5 @@
 import React, {useRef, useState, useCallback, useEffect, useImperativeHandle, forwardRef} from "react"
+import ReactPaint from './Paint';
 
 // https://stackoverflow.com/questions/11796554/automatically-crop-html5-canvas-to-contents#comment106458193_22267731
 function cropImageFromCanvas(ctx) {
@@ -47,126 +48,33 @@ function scaleImageData(imageData, targetWidth, targetHeight){
     return scaledImageData;
 }
 
-// https://www.ankursheel.com/blog/react-component-draw-page-hooks-typescript
+// https://github.com/Aqutras/react-paint
 const MyCanvas = forwardRef((props, ref) => {
     const {width, height, targetWidth, targetHeight } = props
-    // Ref to manipulate canvas
-    const canvasRef = useRef(null)
-    // Keep track of coordinates
-    const [isPainting, setIsPainting] = useState(false);
-    const [mousePosition, setMousePosition] = useState(null);
-
-    // On exit
-    const exitPaint = useCallback(() => {
-        setIsPainting(false);
-    }, []);
-    // draw a line
-    const drawLine = (originalMousePosition, newMousePosition) => {
-        if (!canvasRef.current) {
-            return;
-        }
-        const canvas = canvasRef.current;
-        const context = canvas.getContext('2d');
-        if (context) {
-            context.strokeStyle = 'black';
-            context.lineJoin = 'round';
-            context.lineWidth = 10;
-
-            context.beginPath();
-            context.moveTo(originalMousePosition.x, originalMousePosition.y);
-            context.lineTo(newMousePosition.x, newMousePosition.y);
-            context.closePath();
-
-            context.stroke();
-        }
-    };
-    // Get coordinates
-    const getCoordinates = event => {
-        if (!canvasRef.current) {
-            return;
-        }
-        const canvas = canvasRef.current;
-        return {x: event.pageX - canvas.offsetLeft, y: event.pageY - canvas.offsetTop};
-    };
-    // Paint
-    const paint = useCallback(
-        (event) => {
-            if (isPainting) {
-                const newMousePosition = getCoordinates(event);
-                if (mousePosition && newMousePosition) {
-                    drawLine(mousePosition, newMousePosition);
-                    setMousePosition(newMousePosition);
-                }
-            }
-        },
-        [isPainting, mousePosition]
-    );
-    // Start painting
-    const startPaint = useCallback(event => {
-        const coordinates = getCoordinates(event);
-        if (coordinates) {
-            setIsPainting(true);
-            setMousePosition(coordinates);
-        }
-    }, []);
-    // keep track of coordinates
-    useEffect(() => {
-        if (!canvasRef.current) {
-            return;
-        }
-        const canvas = canvasRef.current;
-        canvas.addEventListener('mousedown', startPaint);
-        // Remove listener on unmount
-        return () => {
-            canvas.removeEventListener('mousedown', startPaint);
-        }
-    }, [startPaint])
-    // draw the line on mouse move
-    useEffect(() => {
-        if (!canvasRef.current) {
-            return;
-        }
-        const canvas = canvasRef.current;
-        canvas.addEventListener('mousemove', paint);
-        return () => {
-            canvas.removeEventListener('mousemove', paint);
-        };
-    }, [paint]);
-    // stop drawing on mouse release
-    useEffect(() => {
-        if (!canvasRef.current) {
-            return;
-        }
-        const canvas = canvasRef.current;
-        canvas.addEventListener('mouseup', exitPaint);
-        canvas.addEventListener('mouseleave', exitPaint);
-        return () => {
-            canvas.removeEventListener('mouseup', exitPaint);
-            canvas.removeEventListener('mouseleave', exitPaint);
-        };
-    }, [exitPaint]);
-
+    const childRef = useRef()
 
     useImperativeHandle(ref, () => ({
         getImage() {
+            const canvasRef = childRef
             if (!canvasRef.current) {
                 return;
             }
             // Get cropped drawing
-            const canvas = canvasRef.current;
+            const canvas = canvasRef.current.canvas;
             const context = canvas.getContext('2d');
             const cropped = cropImageFromCanvas(context)
             const newImage = scaleImageData(cropped, targetWidth, targetHeight)
             // Clear canvas
             context.clearRect(0, 0, canvas.width, canvas.height);
             // Pass back to parent
+            console.log(newImage)
             return newImage
         }
 
       }));
 
     return (        
-        <canvas ref={canvasRef} width={width} height={height} />
+        <ReactPaint ref={childRef} brushCol="#000000" lineWidth={5} width={width} height={height}/>
     )
 })
 

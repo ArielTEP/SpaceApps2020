@@ -1,6 +1,5 @@
 import React, {useState, useEffect, useRef} from "react"
 import FreeCanvas from './Canvas'
-import TargetCanvas from './TargetCanvas'
 
 export default function CraftDrawer(props) {
     const {style, partIndex, onPartFinished, ...rest} = props
@@ -24,7 +23,7 @@ export default function CraftDrawer(props) {
     return (
         <div style={{...style, display:"flex", flexDirection:"row"}}>
             <div style={{flex:1, backgroundImage:`url(/minigame1/parts_sc6/sc6p${partIndex%5}.png)`}} className="mg1-drawer-box mg1-drawer-target">
-                {/*<TargetCanvas width={600} height={800}/>*/}
+
             </div>
             <div style={{flex:1}} className="mg1-drawer-box">
                 <FreeCanvas ref={childRef} width={600} height={800} targetWidth={337} targetHeight={685} />

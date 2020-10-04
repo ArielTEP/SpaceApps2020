@@ -16,7 +16,7 @@ export default function MinigameOne(props) {
     const [score, setScore] = useState(0)
 
     // Timer hook. Set to TIME_PER_PART seconds per piece
-    const TIME_PER_PART = 15
+    const TIME_PER_PART = 5
     const {
         seconds,
         restart
