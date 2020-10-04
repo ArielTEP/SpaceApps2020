@@ -189,6 +189,40 @@ class Enemy extends Actor{
         super('enemy',id,x,y,spdX,spdY,width,height,Img.enemy,10,1);
         this.timer = 0;
         this.impacted = false; // flag
+        this.spriteCounter = 0;
+    }
+
+    draw(){
+        ctx.save();
+        //let x = this.x-this.width/2;
+        let y = this.y-this.height/2;
+        // ctx.drawImage(this.img,x,y,50,50);
+
+        // lets make everything move around the player
+        let x = this.x - player.x;
+        // let y = this.y - player.y;
+
+        x += CTXWIDTH/2;
+        //y += CTXHEIGHT/2;aww
+
+        x -= this.width/2;
+        // y -= this.height/2;
+
+        let xm1 = this.img.width/5 - 400;
+        let xm2 = this.img.width/5 + 400;
+        let xm3 = this.img.width/2 - 130;
+        let xm4 = this.img.width/2 + 870;
+        let xm5 = this.img.width;
+        let pos = [0,xm1,xm2,xm3,xm4,xm5]
+
+        let walk = this.spriteCounter % pos.length-1;
+
+        ctx.drawImage(this.img, 
+            pos[walk],0, 
+            pos[walk+1]-pos[walk], this.img.height, 
+            x, y, this.width, this.height);
+
+		ctx.restore();
     }
 
     updatePosition(){
@@ -199,7 +233,7 @@ class Enemy extends Actor{
         else this.x -= 5;
         // if(diffY > 0) this.y += 5;
         // else this.y -=5;
-
+        this.spriteCounter++;
     }
 
     // override method from parent class
@@ -237,8 +271,8 @@ function randomlyGenerateEnemy(){
 	//Math.random() returns a number between 0 and 1
 	let x = Math.random()*currentMap.width;
 	let y = Math.random()*100;
-	let height = 50 + Math.random()*30;	//between 10 and 40
-	let width = 30 + Math.random()*50;
+	let height = 10 + Math.random()*70;	//between 10 and 40
+	let width = 10 + Math.random()*50;
 	let id = Math.random();
 	let spdX = -5 + Math.random() * 5;
 	let spdY = 10 + Math.random() * 20;
@@ -277,8 +311,8 @@ function randomlyGenerateUpgrade(){
     // console.log("current map width: " + currentMap.width);
     let x = Math.random()*currentMap.width;
     let y = Math.random()*CTXHEIGHT;
-    let height = 30;
-    let width = 30;
+    let height = 100;
+    let width = 100;
     let id = Math.random();
     let spdX = 0;
     let spdY = 0;
@@ -335,8 +369,8 @@ function generateBullet(actor, aimOverwrite){
     // console.log("Actor: " + actor);
 	let x = actor.x;
 	let y = actor.y;
-	let height = 10;
-	let width = 10;
+	let height = 30;
+	let width = 30;
 	let id = Math.random();
  
 	let angle;

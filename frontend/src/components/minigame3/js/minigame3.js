@@ -29,7 +29,7 @@ Img.bullet = new Image();
 Img.bullet.src = "img/rt14.png";
 
 Img.upgrade1 = new Image();
-Img.upgrade1.src = "img/pt2.png";
+Img.upgrade1.src = "img/s2.png";
 
 Img.upgrade2 = new Image();
 Img.upgrade2.src = "img/g1.png";
@@ -94,7 +94,7 @@ update = function(){
 	currentMap.draw(offset);
 	frameCount++;
 	//score++;
-	offset+=2;
+	offset+=6;
  
 	if(frameCount % 25 === 0)	//every 1 sec
 	{
@@ -111,14 +111,14 @@ update = function(){
 	// Levels of difficulty
 	if (time < 10 ) {
 		nE = 2;
-	}else if(time >= 10 && time < 20){
-		nE = 4;
+	}else if(time >= 10 && time < 30){
+		nE = 3;
 	}else{
-		nE = 8;
+		nE = 6;
 	}
 
         
-    if(frameCount % 125 === 0)	//every 5 sec
+    if(frameCount % 75 === 0)	//every 5 sec
         randomlyGenerateUpgrade();
         
     for(var key in bulletList){
@@ -169,7 +169,10 @@ class Maps {
 		// If the player x increases, xmap decreases.
 		let x = player.x - CTXWIDTH/2;
 
-		if (offsetY === this.image.height-CTXHEIGHT) offset = 0;
+		console.log("Offset: " + offsetY);
+		console.log("condition" + (currentMap.height-CTXHEIGHT));
+
+		if (offsetY >= (currentMap.height-CTXHEIGHT)) offset = 0;
 		ctx.drawImage(this.image,x,this.image.height-CTXHEIGHT-offsetY, this.image.width, this.image.height,
 			0,0,this.image.width, this.image.height);
 	}
