@@ -58,8 +58,12 @@ export default function MinigameOne(props) {
 
     const part = spacecraft.parts[currentPart]
     return (
-        <div style={{...style, display:"flex", flexDirection:"column", height:"100%"}}>
-            Timer: {seconds}. Score: {score}
+        <div style={{...style}} className="mg1-container">
+            <div className="mg1-header">
+                <h1>Sketch your spacecraft</h1>
+                <span>Score: {score}</span>
+                <span style={{float:"right"}}>Parts left: {spacecraft.parts.length - currentPart}, Timer: {seconds}</span>
+            </div>
             <div style={{flex:1, display:"flex", flexDirection:"row"}}>
                 <div style={{flex:1, backgroundImage: `url(${part.base})`}} className="mg1-drawer-box mg1-drawer-target" />
                 <div style={{flex:1 }} className="mg1-drawer-box">
