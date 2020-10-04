@@ -91,7 +91,7 @@ document.onkeyup = function(event){
 
 update = function(){
 	ctx.clearRect(0,0,CTXWIDTH,CTXHEIGHT);
-	drawMap(offset);
+	currentMap.draw(offset);
 	frameCount++;
 	//score++;
 	offset+=2;
@@ -137,18 +137,27 @@ startNewGame = function(){
     randomlyGenerateEnemy();
 }
 
-drawMap = function(offsetY){
-	// If the player is in the middle of width,
-	// then the map x starts at 0
-	// If the player x increases, xmap decreases.
-	let x = player.x - CTXWIDTH/2;
 
-	if (offsetY === Img.map.height-CTXHEIGHT) offset = 0;
-	ctx.drawImage(Img.map,x,Img.map.height-CTXHEIGHT-offsetY, Img.map.width, Img.map.height,
-		0,0,Img.map.width, Img.map.height);
+class Maps {
+	constructor(id, src){
+		this.id = id;
+		this.image = new Image();
+		this.image.src = src;
+	}
+
+	draw(offsetY){
+		// If the player is in the middle of width,
+		// then the map x starts at 0
+		// If the player x increases, xmap decreases.
+		let x = player.x - CTXWIDTH/2;
+
+		if (offsetY === this.image.height-CTXHEIGHT) offset = 0;
+		ctx.drawImage(this.image,x,this.image.height-CTXHEIGHT-offsetY, this.image.width, this.image.height,
+			0,0,this.image.width, this.image.height);
+	}
 }
 
-
+currentMap = new Maps('space', "img/map.png");
 player = new Player();
 startNewGame();
 
