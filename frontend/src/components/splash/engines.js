@@ -70,12 +70,6 @@ const nuclear_propulsion = {
         target : "/minigame1/parts_sc2/sc2p3.target.png",
         targetWidth: 72,
         targetHeight: 281
-      },
-      {
-        base : "/minigame1/parts_sc2/sc2p4.png",
-        target : "/minigame1/parts_sc2/sc2p4.target.png",
-        targetWidth: 176,
-        targetHeight: 396
       }
     ]
   }
@@ -117,6 +111,12 @@ const solar_sails = {
         target : "/minigame1/parts_sc3/sc3p4.target.png",
         targetWidth: 311,
         targetHeight: 375
+      },
+      {
+        base : "/minigame1/parts_sc3/sc3p5.png",
+        target : "/minigame1/parts_sc3/sc3p5.target.png",
+        targetWidth: 224,
+        targetHeight: 616
       },
     ]
   }
