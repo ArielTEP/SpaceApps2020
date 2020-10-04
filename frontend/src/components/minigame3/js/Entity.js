@@ -134,6 +134,7 @@ class Player extends Actor{
         this.pressingRight = false;
     }
 
+    // overriden function for Player movements
     updatePosition(){
 		if(this.pressingRight)
 			this.x += 10;
@@ -157,7 +158,7 @@ class Player extends Actor{
     
     // override
     update(){
-        super.update();
+        super.update(); // update position
         if(this.hp <= 0){
             let timeSurvived = Date.now() - timeWhenGameStarted;		
             console.log("You lost! You survived for " + timeSurvived + " ms.");		
@@ -173,6 +174,17 @@ class Enemy extends Actor{
         this.impacted = false; // flag
     }
 
+    updatePosition(){
+        let diffX = player.x - this.x;
+        this.y += this.spdY;
+
+        if(diffX >= 0) this.x += 5;
+        else this.x -=5;
+        // if(diffY > 0) this.y += 5;
+        // else this.y -=5;
+
+    }
+
     // override method from parent class
     update(){
         super.update();
@@ -180,7 +192,7 @@ class Enemy extends Actor{
 
         let toRemove = false;
         this.timer++;
-        if(this.timer > 50){
+        if(this.timer > 500){ // 20 secs to dissapear
             toRemove = true;
         }
 

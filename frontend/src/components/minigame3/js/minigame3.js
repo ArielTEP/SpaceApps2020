@@ -57,7 +57,7 @@ document.onmousemove = function(mouse){
 	let mouseY = mouse.clientY - document.getElementById('ctx').getBoundingClientRect().top;
  
 	mouseX -= CTXWIDTH/2;
-	mouseY -= CTXHEIGHT/2;
+	mouseY -= player.y;
  
 	player.aimAngle = Math.atan2(mouseY,mouseX) / Math.PI * 180;
 }
