@@ -15,6 +15,10 @@
 	font-size: x-large;
 }
 
+.splash-container ol {
+	font-size: x-large;
+}
+
 .splash-container button {
 	padding: 10px 16px;
 	font-size: 16px;
