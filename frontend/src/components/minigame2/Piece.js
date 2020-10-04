@@ -10,6 +10,7 @@ export default function Piece(props) {
 
         e.dataTransfer.setData('piece_id', target.id);
         e.dataTransfer.setData('piece_src', target.src);
+        e.dataTransfer.setData('piece_x', target.clientX);
 
         setTimeout(() => {
             target.style.opacity = 0.5;

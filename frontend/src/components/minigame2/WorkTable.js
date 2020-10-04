@@ -3,7 +3,7 @@ import Design from './Design';
 
 export default function WorkTable(props) {
     
-    const { id, className, children } = props;
+    const { id, className, children, calculatePieces} = props;
     const [resultSpaceCraft, setResultSpaceCraft] = useState("");
     const [draggingPostitionX, setDraggingPostitionX] = useState(0);
     const [draggingPostitionY, setDraggingPostitionY] = useState(0);
@@ -14,6 +14,7 @@ export default function WorkTable(props) {
         e.preventDefault();
         const piece_id = e.dataTransfer.getData('piece_id');
         const piece_src = e.dataTransfer.getData('piece_src');
+        const piece_x = e.dataTransfer.getData('piece_x');
 
         const piece = document.getElementById(piece_id);
         piece.style.display = 'block';
@@ -28,14 +29,14 @@ export default function WorkTable(props) {
      
         Img.pieza1.onload = function () {
             ctx.drawImage (Img.pieza1,0,0, Img.pieza1.width, Img.pieza1.height,
-                draggingPostitionX-25,draggingPostitionY-50, 20,40 );
+                draggingPostitionX,draggingPostitionY - 50, 30,50 );
         };
-     
-        e.target.appendChild(piece);
 
-        console.log(Img.pieza1.src);
-        //console.log(draggingPostitionX);
-        //console.log(draggingPostitionY);
+        calculatePieces(piece_src);
+        
+        const model = document.getElementById("Design");
+        piece.style.display = "none";
+        model.appendChild(piece);
     }
 
 
@@ -47,7 +48,7 @@ export default function WorkTable(props) {
         //console.log(offset)
         //console.log((e.screenX - rect.left) +", " + (e.clientX - rect.left) )
         
-        setDraggingPostitionX(e.screenX - rect.left - 50);
+        setDraggingPostitionX(e.screenX - rect.left - 30);
         setDraggingPostitionY(e.screenY - rect.top - 50);
 
         e.preventDefault();

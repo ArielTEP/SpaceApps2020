@@ -12,7 +12,7 @@
     color: #fff;
     display: flex;
     flex-direction: column;
-    background-image: url("../../assets/ta1.png");
+    background-image: url("/minigame2/assets/ta1.png");
     background-repeat: round;
     /*background-size: 200px 120px;*/
     background-attachment: local;
@@ -33,7 +33,7 @@
     flex-direction: row;
     flex: 1 1 auto;
     min-height: 50px;
-    background-image: url("../../assets/t2.png");
+    background-image: url("/minigame2/assets/t2.png");
     background-size: cover;
     background-repeat: repeat-x;
     background-position: left;
@@ -52,13 +52,13 @@
 }
 
 .left-conveyor {
-    background-image: url("../../assets/t2_flip2.png");
+    background-image: url("/minigame2/assets/t2_flip2.png");
     padding-left: 30px;
     align-items: flex-start;
 }
 
 .right-conveyor {
-    background-image: url("../../assets/t2_flip1.png");
+    background-image: url("/minigame2/assets/t2_flip1.png");
     padding-right: 30px;
     align-items: flex-end;
 }
@@ -69,7 +69,7 @@
     flex: 8;
     justify-content: center;
     align-items: center;
-    background-image: url("../../assets/ta1.png"), url("../../assets/tl1.png");
+    background-image: url("/minigame2/assets/ta1.png"), url("/minigame2/assets/tl1.png");
     background-repeat: repeat repeat;
     background-size: 100px 100px;
     background-attachment: local;
@@ -83,7 +83,7 @@
     flex-wrap: wrap;
     justify-content: space-around;
     align-items: center;
-    background-image: url("../../assets/ta1.png");
+    background-image: url("/minigame2/assets/ta1.png");
     background-repeat: round;
     flex: 0.5;
     height: 80%;
@@ -98,6 +98,8 @@
     max-width: 30px;
     max-height: 90px;
     cursor: pointer;
+    width: 30px;
+    height: 50px;
 }
 
 .designSpaceCraft {
@@ -112,7 +114,18 @@
 }
 
 .canvas {
-    opacity: .8;
+    opacity: 1;
     height: 100%;
-    background-color: palegreen;
+}
+
+.Blueprint {
+    height: 200px;
+    padding-left: 60px;
+    padding-right: 60px;
+    padding-top: 50px;
+    padding-bottom: 80px;
+    position: absolute;
+    left: 20%;
+    background-image: url("/minigame2/assets/te1.png");
+    background-repeat: round;
 }
