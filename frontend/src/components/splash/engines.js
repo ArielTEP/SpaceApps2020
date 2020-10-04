@@ -125,7 +125,7 @@ const solar_sails = {
 const ion_engine = {
   id: 4,
   name: "ION ENGINE",
-  description: "Different charges attract and same charges repel each other. These engines are being designed for a wide variety of missions. These thrusters have high specific impulses—ratio of thrust to the rate of propellant consumption, so they require significantly less propellant for a given mission than would be needed with chemical propulsion. Ion propulsion is even considered to be mission enabling for some cases where sufficient chemical propellant cannot be carried on the spacecraft to accomplish the desired mission.",
+  description: "Different charges attract and same charges repel each other. These engines take advantange of this fact to expell atoms of an ionized gas at very high speeds to provide thrust to the spacecraft according to Newton's third law of motion. This system is useful in some cases where sufficient chemical propellant cannot be carried on the spacecraft to accomplish the desired mission.",
   image: "/spacecrafts/sc4.png",
   minigame1 : {
     parts : [
