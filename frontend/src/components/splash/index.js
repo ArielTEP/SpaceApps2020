@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react';
+import './index.css';
 
 function Splash(props) {
   const {onReady} = props
@@ -46,8 +47,12 @@ function Splash(props) {
 
   const propulsionObject = chooseRandomPropulsionSystem()
   return (
-    <div style={{display: "flex", flexDirection:"column", height:"100vh"}}>
+    <div className="splash-container">
       <div style={{flex:1}}>
+        <h1>Propulsion Craft</h1>
+        <p>
+          TODO: poner instrucciones
+        </p>
         <p>
           Your propulsion system for this journey is going to be 6! Click button to start
         </p>

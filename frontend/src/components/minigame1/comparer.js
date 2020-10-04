@@ -37,9 +37,5 @@ function compare(target, secondImage, callback) {
 		});
 	});
 }
- 
-compare('Lenna50.jpg', 'Lenna100.jpg', function (result) {
-	console.log(result);
-});
 
 export default compare;
