@@ -139,10 +139,12 @@ startNewGame = function(){
 
 
 class Maps {
-	constructor(id, src){
+	constructor(id, src, width, height){
 		this.id = id;
 		this.image = new Image();
 		this.image.src = src;
+		this.width = width;
+		this.height = height;
 	}
 
 	draw(offsetY){
@@ -157,7 +159,7 @@ class Maps {
 	}
 }
 
-currentMap = new Maps('space', "img/map.png");
+currentMap = new Maps('space', "img/map.png", 2000, 4500);
 player = new Player();
 startNewGame();
 

@@ -36,7 +36,7 @@ class Entity{
         // let y = this.y - player.y;
 
         x += CTXWIDTH/2;
-        //y += CTXHEIGHT/2;
+        //y += CTXHEIGHT/2;aww
 
         x -= this.width/2;
         // y -= this.height/2;
@@ -73,7 +73,7 @@ class Entity{
         this.x += this.spdX;
 		this.y += this.spdY;
  
-		if(this.x < 0 || this.x > CTXWIDTH){
+		if(this.x < 0 || this.x > currentMap.width){
 			this.spdX = -this.spdX;
 		}
 		/* if(this.y < 0 || this.y > CTXHEIGHT){
@@ -147,8 +147,8 @@ class Player extends Actor{
 		//ispositionvalid
 		if(this.x < this.width/2)
 			this.x = this.width/2;
-		if(this.x > CTXWIDTH-this.width/2)
-			this.x = CTXWIDTH - this.width/2;
+		if(this.x > currentMap.width-this.width/2)
+			this.x = currentMap.width - this.width/2;
 		if(this.y < this.height/2)
 			this.y = this.height/2;
 		if(this.y > CTXHEIGHT - this.height/2)
@@ -206,7 +206,7 @@ function makeEnemy(id,x,y,spdX,spdY,width,height){
 // generate enemies randomly in the map
 function randomlyGenerateEnemy(){
 	//Math.random() returns a number between 0 and 1
-	let x = Math.random()*CTXWIDTH;
+	let x = Math.random()*currentMap.width;
 	let y = Math.random()*100;
 	let height = 50 + Math.random()*30;	//between 10 and 40
 	let width = 30 + Math.random()*50;
@@ -245,7 +245,8 @@ function makeUpgrade(id,x,y,spdX,spdY,width,height,category, img){
 // Make upgrades appear anywhere
 function randomlyGenerateUpgrade(){
 //Math.random() returns a number between 0 and 1
-    let x = Math.random()*CTXWIDTH;
+    // console.log("current map width: " + currentMap.width);
+    let x = Math.random()*currentMap.width;
     let y = Math.random()*CTXHEIGHT;
     let height = 30;
     let width = 30;
