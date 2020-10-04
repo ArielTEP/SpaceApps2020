@@ -9,7 +9,7 @@ import './App.css';
 function App() {
 
   const [score, setScore] = useState(0)
-  const [currentGame, goToGame] = useState(2)
+  const [currentGame, goToGame] = useState(1)
 
   // Callback for first minigame
   const onMinigameOneFinishes = (newScore) => {
