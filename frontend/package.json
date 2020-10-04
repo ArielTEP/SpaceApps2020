@@ -9,7 +9,9 @@
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-draggable": "^4.4.3",
-    "react-scripts": "3.4.3"
+    "react-scripts": "3.4.3",
+    "react-timer-hook": "^2.0.3",
+    "react-virtualized-auto-sizer": "^1.0.2"
   },
   "scripts": {
     "start": "react-scripts start",

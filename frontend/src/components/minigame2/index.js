@@ -80,6 +80,10 @@ export default function MinigameTwo(props) {
     	onFinish(finalScore);
     }
 
+    /* Aquí se itera el arreglo "parts" para mostrar la imagen de cada uno. Cuando se renderea con una
+    iteracion, React pide que cada elemento tenga un "key" único. En este caso, se está usando el índice
+    del elemento en el arreglo.
+    No le estoy poniendo width/height a las imagenes, pero se podría hacer. */
     return (
         <div className="minigame2">
             <p>Score: {score2} Time: {seconds}</p>
