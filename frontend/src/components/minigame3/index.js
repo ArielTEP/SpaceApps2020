@@ -89,7 +89,7 @@ const update = function(){
     player.update();
     //ctx.fillText( "Resistance: " + player.hp,0,30);
     ctx.fillText('Score: ' + score,200,30);
-    ctx.fillText('Time survived in space: ' + Math.floor(time/60) + ":" + time % 60,400,30);
+    ctx.fillText('Time survived in space: ' + Math.floor(time/60) + ":" + time % 60,500,30);
 }
 
 const startNewGame = function(totalScore){
