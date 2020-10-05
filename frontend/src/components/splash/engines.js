@@ -7,30 +7,35 @@ const rocket_engine = {
   minigame1 : {
     parts : [
       {
+        id: 1,
         base : "/minigame1/parts_sc5/sc5p0.png",
         target : "/minigame1/parts_sc5/sc5p0.target.png",
         targetWidth: 173,
         targetHeight: 631
       },
       {
+        id: 2,
         base : "/minigame1/parts_sc5/sc5p1.png",
         target : "/minigame1/parts_sc5/sc5p1.target.png",
         targetWidth: 95,
         targetHeight: 219
       },
       {
+        id: 3,
         base : "/minigame1/parts_sc5/sc5p2.png",
         target : "/minigame1/parts_sc5/sc5p2.target.png",
         targetWidth: 152,
         targetHeight: 370
       },
       {
+        id: 4,
         base : "/minigame1/parts_sc5/sc5p3.png",
         target : "/minigame1/parts_sc5/sc5p3.target.png",
         targetWidth: 139,
         targetHeight: 342
       },
       {
+        id: 5,
         base : "/minigame1/parts_sc5/sc5p4.png",
         target : "/minigame1/parts_sc5/sc5p4.target.png",
         targetWidth: 95,
@@ -48,6 +53,7 @@ const nuclear_propulsion = {
   minigame1 : {
     parts : [
       {
+        id: 1,
         base : "/minigame1/parts_sc2/sc2p0.png",
         target : "/minigame1/parts_sc2/sc2p0.target.png",
         targetWidth: 116,
@@ -60,12 +66,14 @@ const nuclear_propulsion = {
         targetHeight: 281
       },
       {
+        id: 3,
         base : "/minigame1/parts_sc2/sc2p2.png",
         target : "/minigame1/parts_sc2/sc2p2.target.png",
         targetWidth: 116,
         targetHeight: 308
       },
       {
+        id: 4,
         base : "/minigame1/parts_sc2/sc2p3.png",
         target : "/minigame1/parts_sc2/sc2p3.target.png",
         targetWidth: 72,
@@ -83,36 +91,42 @@ const solar_sails = {
   minigame1 : {
     parts : [
       {
+        id: 1,
         base : "/minigame1/parts_sc3/sc3p0.png",
         target : "/minigame1/parts_sc3/sc3p0.target.png",
         targetWidth: 255,
         targetHeight: 612
       },
       {
+        id: 2,
         base : "/minigame1/parts_sc3/sc3p1.png",
         target : "/minigame1/parts_sc3/sc3p1.target.png",
         targetWidth: 311,
         targetHeight: 375
       },
       {
+        id: 3,
         base : "/minigame1/parts_sc3/sc3p2.png",
         target : "/minigame1/parts_sc3/sc3p2.target.png",
         targetWidth: 224,
         targetHeight: 616
       },
       {
+        id: 4,
         base : "/minigame1/parts_sc3/sc3p3.png",
         target : "/minigame1/parts_sc3/sc3p3.target.png",
         targetWidth: 325,
         targetHeight: 710
       },
       {
+        id: 5,
         base : "/minigame1/parts_sc3/sc3p4.png",
         target : "/minigame1/parts_sc3/sc3p4.target.png",
         targetWidth: 311,
         targetHeight: 375
       },
       {
+        id: 6,
         base : "/minigame1/parts_sc3/sc3p5.png",
         target : "/minigame1/parts_sc3/sc3p5.target.png",
         targetWidth: 224,
@@ -130,36 +144,42 @@ const ion_engine = {
   minigame1 : {
     parts : [
       {
+        id: 1,
         base : "/minigame1/parts_sc4/sc4p0.png",
         target : "/minigame1/parts_sc4/sc4p0.target.png",
         targetWidth: 72,
         targetHeight: 232
       },
       {
+        id: 2,
         base : "/minigame1/parts_sc4/sc4p1.png",
         target : "/minigame1/parts_sc4/sc4p1.target.png",
         targetWidth: 64,
         targetHeight: 472
       },
       {
+        id: 3,
         base : "/minigame1/parts_sc4/sc4p2.png",
         target : "/minigame1/parts_sc4/sc4p2.target.png",
         targetWidth: 48,
         targetHeight: 176
       },
       {
+        id: 4,
         base : "/minigame1/parts_sc4/sc4p3.png",
         target : "/minigame1/parts_sc4/sc4p3.target.png",
         targetWidth: 40,
         targetHeight: 120
       },
       {
+        id: 5,
         base : "/minigame1/parts_sc4/sc4p4.png",
         target : "/minigame1/parts_sc4/sc4p4.target.png",
         targetWidth: 48,
         targetHeight: 176
       },
       {
+        id: 6,
         base : "/minigame1/parts_sc4/sc4p5.png",
         target : "/minigame1/parts_sc4/sc4p5.target.png",
         targetWidth: 40,
@@ -177,30 +197,35 @@ const warp_dive = {
   minigame1 : {
     parts : [
       {
+        id: 1,
         base : "/minigame1/parts_sc6/sc6p0.png",
         target : "/minigame1/parts_sc6/sc6p0.target.png",
         targetWidth: 500,
         targetHeight: 500
       },
       {
+        id: 2,
         base : "/minigame1/parts_sc6/sc6p1.png",
         target : "/minigame1/parts_sc6/sc6p1.target.png",
         targetWidth: 205,
         targetHeight: 625
       },
       {
+        id: 3,
         base : "/minigame1/parts_sc6/sc6p2.png",
         target : "/minigame1/parts_sc6/sc6p2.target.png",
         targetWidth: 220,
         targetHeight: 650
       },
       {
+        id: 4,
         base : "/minigame1/parts_sc6/sc6p3.png",
         target : "/minigame1/parts_sc6/sc6p3.target.png",
         targetWidth: 230,
         targetHeight: 650
       },
       {
+        id: 5,
         base : "/minigame1/parts_sc6/sc6p4.png",
         target : "/minigame1/parts_sc6/sc6p4.target.png",
         targetWidth: 500,

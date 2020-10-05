@@ -47,7 +47,7 @@ export default function MinigameOne(props) {
         if( drawing !== null ){
             const target = part.target
             // Store targets and pass to Leo
-            sketchedParts.push(drawing)
+            sketchedParts.push({ id: spacecraft.parts[currentPart].id, url:drawing })
             // Perform comparison
             compare(target, drawing, (result) => {
                 setScore(score + result)
@@ -57,7 +57,7 @@ export default function MinigameOne(props) {
         }
         else {
             // push the target in case no image was drawn
-            sketchedParts.push(part.target)
+            sketchedParts.push({ id: spacecraft.parts[currentPart].id, url:part.target })
             switchPart()
         }
     }

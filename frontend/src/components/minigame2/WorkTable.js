@@ -18,7 +18,7 @@ export default function WorkTable(props) {
         const piece = document.getElementById(piece_id);
         piece.style.display = 'block';
 
-        var hasMoved = calculatePieces(piece_src);
+        var hasMoved = calculatePieces(piece_id);
         
         if(hasMoved) {
             let ctx = document.getElementById("Canvas").getContext("2d");
