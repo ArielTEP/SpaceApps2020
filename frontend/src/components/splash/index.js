@@ -22,9 +22,9 @@ function Splash(props) {
             </p>
             <br/>
             <p>
-              1. Draw the parts you need to build a {propulsionObject.name} <br/>
-              2. Assemble the parts to begin the journey <br/>
-              3. Survive as long as you can without being destroyed by meteorites. Move with WASD and shoot with the mouse. <br/>
+              1. Draw the parts you need to build a {propulsionObject.name} before you run out of time<br/>
+              2. Assemble the parts to begin the journey. Drag and drop the part shown in the monitor to the workspace <br/>
+              3. Survive as long as you can without being destroyed by meteorites. Move with WASD and shoot with a mouse click.<br/>
             </p>
             <br/>
             <p>
