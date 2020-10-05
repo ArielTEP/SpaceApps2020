@@ -16,21 +16,24 @@ function Splash(props) {
       <div style={{flex:1}}>
         <h1>Propulsion Craft</h1>
         <div style={{display:"flex", flexDirection:"row", padding:"0px 150px 0px 150px"}}>
-          <div style={{flex:1, marginRight:"15px"}}>
+          <div style={{flex:1, marginRight:"15px", backgroundColor:"#00000095", padding:"45px", borderRadius:"50px", lineHeight:1.5, textAlign:"left"}}>
             <p>
               Go on a journey against time is starting from designing and making your own spacecraft from scratch to travelling accross the universe trying to survive!
             </p>
-            <ol>
-              <li>Draw the parts you need to build a {propulsionObject.name} </li>
-              <li>Assemble the parts to begin the journey</li>
-              <li>Survive as long as you can without being destroyed</li>
-            </ol> 
+            <br/>
+            <p>
+              1. Draw the parts you need to build a {propulsionObject.name} <br/>
+              2. Assemble the parts to begin the journey <br/>
+              3. Survive as long as you can without being destroyed by meteorites. Move with WASD and shoot with the mouse. <br/>
+            </p>
+            <br/>
             <p>
               Your propulsion system for this journey is going to be <b>{propulsionObject.name}</b>! <br/> Do you think you can beat the clock?
             </p>
+            <br/>
             <button onClick={() => {onReady(propulsionObject)} }>Let's do it</button>
           </div>
-          <div className="card" style={{flex:1, backgroundColor:"white", marginLeft:"15px"}}>
+          <div className="card" style={{flex:1, backgroundColor:"#00000095", marginLeft:"15px", paddingTop:"20px"}}>
             <div className="card-title">{propulsionObject.name}</div>
             <div className="card-container">
               {propulsionObject.description} <br/>
