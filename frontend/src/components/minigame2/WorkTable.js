@@ -16,27 +16,29 @@ export default function WorkTable(props) {
         const piece_src = e.dataTransfer.getData('piece_src');
 
         const piece = document.getElementById(piece_id);
-        piece.style.display = 'block';
+        if(piece != null) {
+            piece.style.display = 'block';
 
-        var hasMoved = calculatePieces(piece_id);
-        
-        if(hasMoved) {
-            let ctx = document.getElementById("Canvas").getContext("2d");
-
-            let Img = {};
-            Img.pieza1 = document.createElement("img");
-            Img.pieza1.src = piece_src;
+            var hasMoved = calculatePieces(piece_id);
             
-            var img = document.createElement('img');
-        
-            Img.pieza1.onload = function () {
-                ctx.drawImage (Img.pieza1,0,0, Img.pieza1.width, Img.pieza1.height,
-                    draggingPostitionX,draggingPostitionY - 50, 30,50 );
-            };
-        
-            const model = document.getElementById("Design");
-            piece.style.display = "none";
-            model.appendChild(piece);
+            if(hasMoved) {
+                let ctx = document.getElementById("Canvas").getContext("2d");
+
+                let Img = {};
+                Img.pieza1 = document.createElement("img");
+                Img.pieza1.src = piece_src;
+                
+                var img = document.createElement('img');
+            
+                Img.pieza1.onload = function () {
+                    ctx.drawImage (Img.pieza1,0,0, Img.pieza1.width, Img.pieza1.height,
+                        draggingPostitionX,draggingPostitionY - 50, 30,50 );
+                };
+            
+                const model = document.getElementById("Design");
+                piece.style.display = "none";
+                model.appendChild(piece);
+            }
         }
     }
 

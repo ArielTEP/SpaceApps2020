@@ -48,7 +48,7 @@ export default function MinigameTwo(props) {
     const { seconds, restart } = useTimer({ 
                 // 5 seconds * part
                 expiryTimestamp: get_expiry_timestamp(5*originalParts.length),
-                onExpire: () => finishMinigame() 
+                onExpire: () => finishMinigame(score2) 
             });
 
     useEffect(() => {
