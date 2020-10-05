@@ -50,6 +50,7 @@ export default function MinigameOne(props) {
             sketchedParts.push({ id: spacecraft.parts[currentPart].id, url:drawing })
             // Perform comparison
             compare(target, drawing, (result) => {
+                result = Math.round(result)
                 setScore(score + result)
                 // Next part
                 switchPart(score+result)
