@@ -54,7 +54,7 @@ const update = function(){
         //randomlyGenerateEnemy();
         for (let i = 0; i < nE; i++){
             randomlyGenerateEnemy();
-            console.log(nE);
+            // console.log(nE);
         }
         time++;
     }
@@ -121,8 +121,8 @@ class Maps {
         // If the player x increases, xmap decreases.
         let x = player.x - CTXWIDTH/2;
 
-        console.log("Offset: " + offsetY);
-        console.log("condition" + (currentMap.height-CTXHEIGHT));
+        // console.log("Offset: " + offsetY);
+        // console.log("condition" + (currentMap.height-CTXHEIGHT));
 
         if (offsetY >= (currentMap.height-CTXHEIGHT)) offset = 0;
         ctx.drawImage(this.image,x,this.image.height-CTXHEIGHT-offsetY, this.image.width, this.image.height,
