@@ -48,7 +48,7 @@ export default function MinigameTwo(props) {
     const { seconds, restart } = useTimer({ 
                 // 5 seconds * part
                 expiryTimestamp: get_expiry_timestamp(5*originalParts.length),
-                onExpire: () => finishMinigame() 
+                onExpire: () => finishMinigame(score2) 
             });
 
     useEffect(() => {
@@ -67,14 +67,14 @@ export default function MinigameTwo(props) {
             const partsLeft = goodParts - 1
             setGoodParts(partsLeft)
             t++;
-            if(partsLeft == 0)
-                finishMinigame(score2+100);
+            if(partsLeft == 0) {
+                finishMinigame(score2+100+seconds);
+            }
         }
         return valid;
     }
 
     const finishMinigame = (receivedScore) => {
-        receivedScore = receivedScore + seconds
         setScore2(receivedScore);
     	onFinish(receivedScore);
     }
