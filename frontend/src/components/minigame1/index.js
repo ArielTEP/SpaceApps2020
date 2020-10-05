@@ -57,8 +57,8 @@ export default function MinigameOne(props) {
         }
         else {
             // push the target in case no image was drawn
-            sketchedParts.push({ id: spacecraft.parts[currentPart].id, url:part.target })
-            switchPart()
+            sketchedParts.push({ id: spacecraft.parts[currentPart].id, url:part.base })
+            switchPart(score)
         }
     }
 
