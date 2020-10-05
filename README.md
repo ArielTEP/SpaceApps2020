@@ -1,4 +1,4 @@
-# Einstant - SpaceApps2020
+# PROPULSION CRAFT - Space Apps Challenge 2020
  A fun and easy way to know what breakthrough propulsion systems can do
 - **Category:** Create
 - **Challenge:** Breakthrough
@@ -9,47 +9,47 @@ There is a need for developing advanced propulsion applications and systems that
 
 **Goal:** Showcase both existing, as well as next generation/theoretical, breakthrough spacecraft propulsion in an engaging way.
 
-The propulsion systems to be considered are:
-1. rocket engine - ariel
-2. nuclear propulsion - carlos
-3. solar sails - leo
-4. ion engines - ariel
-5. warp drives - carlos
-6. antimateria - leo
+Propulsion systems taken from the NASA challenge description:
+1. Rocket engine 
+2. Nuclear propulsion 
+3. Solar sails
+4. Ion engines 
+5. Warp drives
 
 ## Minigaming concept
 
-The application will be divided in 3 minigames that, together, will tell how a journey is starting from designing and making your own spacecraft from scratch to travelling accross the universe trying to survive. Some considerations:
-* Hacer cada minijuego modular en cuanto a los sistemas de propulsion. La idea es que cuando cada quien haga su minijuego, se enfoque en implementar sus 2 sistemas de propulsión pero que quede modular para que el sábado/domingo los otros puedan agregar sus sistemas de propulsión rápido en todos los minijuegos.
-* El sistema de propulsión sobre el que se va a basar la historia será aleatorio y se determinará al inicio.
+The application will be divided in 3 minigames that, together, will tell how a journey is starting from designing and making your own spacecraft from scratch to travelling accross the universe trying to survive. 
 
-**Minigame 1. Sketch your propulsion system - 1 minute**
+Some considerations:
+* When the application loads, a random propulson system is automatically selected.
+* That will be the system in which the next three minigames will be based on.
 
-*Dar una explicacion de cada sistema.*
+**Minigame 1. Sketch your propulsion system - Do it quickly!**
+*The purpose here is to understan the componenet that make each propulsion system unique*
 
-1. Mostrar imagenes al usuario para dibujar.
-2. Medir que tan preciso fue su dibujo, si fue bueno, su puntaje sube.
-3. Al enviar el dibujo al servidor, termina el juego y acumula puntos para el siguiente.
+1. Display an image to the player so they can sketch it.
+2. The higher the similiraty of your sketch to the presented part, the higher the score.
+3. Once you are done with the sequence of sketches, the game will take you to Minigame 2.
 
-*Las piezas dibujadas en este minijuego seran utilizadas en el siguiente.*
+*The pieces drawn in Minigame 1 will be used on Minigame 2*
 
-**Minigame 2. Ensabla tu spacecraft - 1 minute**
-1. El usuario elige las piezas de un contenedor (drag n drop).
-2. Mostrar lo que tiene que "cocinar" el usuario con las piezas dadas en los contenedores.
-3. Tendrá que crear su spacecraft en el menor tiempo posible.
-4. A medida que pase el tiempo, el score va decrementando.
-5. Mostrar a los usuarios las condiciones fisicas a las que se va a enfrentar su nave para que la diseñe a la medida o lo mejor posible.
+**Minigame 2. Equip your spacecraft - 1 minute**
+1. The player will pick the pieces drawn earlier from the a conveyor band (drag and drop).
+2. Show what the player needs to pick 
+3. The less time taken dragging and dropping the right pick, the higher the score.
+4. Careful! If you pick wrong, 50pts are substracted from your score.
+5. Additionaly, if you choose right, 50 pts added.
 
-*La nave construida en este minijuego sera utilizada en el siguiente y ultimo minijuego.*
+*The spacecraft equiped in this minigame will be used to play the last minigame!*
 
-**Minigame 3. Carrera espacial**
-1. Backaground del mapa: Imagenes de la NASA.
-2. Esquivar meteoritos
-3. Disparar a los meteoritos
-4. Habilidad especial disponible: Segun el tipo de spacecraft que construiste.
-5. El score va aumentando entre mas asteroides destruyas y mas distancia recorras para acumular puntos.
+**Minigame 3. Survive in space by moving fast and dodging asteroids!**
+1. TODO: Map background should be NASA real pictures taken from space.
+2. Dodge asteroids in order to keep alive!
+3. Shoot the asteroids to avoid colliding with them.
+4. TODO: Based on the propulsion system assigned, an special ability should be added to the spacecraft. 
+5. The score will increase as you impact with satellites and tear down space rocks!
 
-### Ranking system (tentative)
+### Ranking system for players based on score (tentative)
 - Aerospace Artist - 500+ points
 - Aerospace Engineer - 300+ points
 - Aerospace Enthusiast - 100+ points
@@ -57,22 +57,13 @@ The application will be divided in 3 minigames that, together, will tell how a j
 - Aerospace Student - 20+ points
 
 ### Who wins?
-- Todos van acumulando puntos y obteniendo su respectivo rango segun el ranking system.
+- Everyone will be accumulating points and getting a degree/rank based on how they performed throughout the minigames.
 
-### Ideas por hilar
-- Dado que los minijuegos dependen del tiempo, podemos alterarlo enterminos de gravedad y velocidad.
-- Obstaculo: Agujeros negros, alteracion del tiempo a favor o en contra. Si caes en uno, la nave te succiona por completo.
-    La clave para superar este obstaculo dependera, de que presiones tu habilidad especial en el momento preciso.
-
-### Experiencia de usuario
-- Pending details (probably designed by Erik)
-
-### Future work
-- Add levels depending on the propulsion system
-
-### Nices to have
-- Que el tercer juego fuera infinito y acabara en cuanto mueras. Debe ser "fácil" morir
-- Efectos especiales, música. Erik tiene audios.
+### Ideas for new features
+- Given that the minigames depend on time, we could alter the environment in terms of gravity and speed.
+- Obstacles: Black hole, instant transmission and time contraction. 
+- To dodge obstacles successfully, you will need to test your abilities to decide what can be
+leveraged from the propulsion system equiped on your spacecraft.
 
 ## Installation
 
