@@ -1,0 +1,132 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.minigame2 {
+    background-color: #030915;
+    width: 100%;
+    height: 100%;
+    padding: 5%;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    background-image: url("/minigame2/assets/ta1.png");
+    background-repeat: round;
+    /*background-size: 200px 120px;*/
+    background-attachment: local;
+}
+
+.middleGame {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex: 3;
+}
+
+.top-conveyor, .bottom-conveyor {
+    background-color: #142734;
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    flex-direction: row;
+    flex: 1 1 auto;
+    min-height: 50px;
+    background-image: url("/minigame2/assets/t2.png");
+    background-size: cover;
+    background-repeat: repeat-x;
+    background-position: left;
+}
+
+.left-conveyor, .right-conveyor  {
+    background-color: #142734;
+    justify-content: space-around;
+    flex-direction: column;
+    flex: 1 1 auto;
+    display: flex;
+    min-width: 60px;
+    background-size: cover;
+    background-repeat: repeat-x;
+    background-position: left;
+}
+
+.left-conveyor {
+    background-image: url("/minigame2/assets/t2_flip2.png");
+    padding-left: 30px;
+    align-items: flex-start;
+}
+
+.right-conveyor {
+    background-image: url("/minigame2/assets/t2_flip1.png");
+    padding-right: 30px;
+    align-items: flex-end;
+}
+
+.floor {
+    background-color: #030915;
+    display: flex;
+    flex: 8;
+    justify-content: center;
+    align-items: center;
+    background-image: url("/minigame2/assets/ta1.png"), url("/minigame2/assets/tl1.png");
+    background-repeat: repeat repeat;
+    background-size: 100px 100px;
+    background-attachment: local;
+    background-blend-mode: soft-light;
+}
+
+.workTable {
+    background-color: darkgrey;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    background-image: url("/minigame2/assets/ta1.png");
+    background-repeat: round;
+    flex: 0.5;
+    height: 80%;
+}
+
+.tablePicture {
+    width: 200%;
+}
+
+.piece {
+    width: 30px;
+    max-width: 30px;
+    max-height: 90px;
+    cursor: pointer;
+    width: 30px;
+    height: 50px;
+    background-color: white;
+}
+
+.designSpaceCraft {
+    flex-direction: row;
+    min-width: 100px;
+    min-height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    z-index: 1;
+}
+
+.canvas {
+    opacity: 1;
+    height: 100%;
+}
+
+.Blueprint {
+    height: 200px;
+    padding-left: 60px;
+    padding-right: 60px;
+    padding-top: 50px;
+    padding-bottom: 80px;
+    position: absolute;
+    left: 20%;
+    background-image: url("/minigame2/assets/te1.png");
+    background-repeat: round;
+}

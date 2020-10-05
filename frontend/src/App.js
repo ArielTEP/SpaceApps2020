@@ -48,7 +48,7 @@ function App() {
       <div style={{flex:1}}>
         {currentGame === 0 && <SplashScreen onReady={startGame} /> }
         {currentGame === 1 && <MinigameOne onFinish={onMinigameOneFinishes} spacecraft={propulsionSystem.minigame1} /> }
-        {currentGame === 2 && <MinigameTwo parts={spacecraft.parts} onFinish={onMinigameTwoFinishes} score={score} /> }
+        {currentGame === 2 && <MinigameTwo originalParts={propulsionSystem.minigame1.parts} parts={spacecraft.parts} onFinish={onMinigameTwoFinishes} score={score} /> }
         {currentGame === 3 && <MinigameThree onFinish={onMinigameThreeFinishes} score={score} /> }
         {currentGame === 4 && <Leaderboard score={score} />  }
       </div>
